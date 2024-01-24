@@ -42,13 +42,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.takmičariToolStripMenuItem,
             this.treneriToolStripMenuItem,
             this.dodelaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(190, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -57,12 +58,14 @@
             this.takmičariToolStripMenuItem.Name = "takmičariToolStripMenuItem";
             this.takmičariToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
             this.takmičariToolStripMenuItem.Text = "Takmičari";
+            this.takmičariToolStripMenuItem.Click += new System.EventHandler(this.takmičariToolStripMenuItem_Click);
             // 
             // treneriToolStripMenuItem
             // 
             this.treneriToolStripMenuItem.Name = "treneriToolStripMenuItem";
             this.treneriToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.treneriToolStripMenuItem.Text = "Treneri";
+            this.treneriToolStripMenuItem.Click += new System.EventHandler(this.treneriToolStripMenuItem_Click);
             // 
             // dodelaToolStripMenuItem
             // 
@@ -72,6 +75,7 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(25, 41);
@@ -82,15 +86,18 @@
             // 
             // btnLogout
             // 
+            this.btnLogout.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnLogout.Location = new System.Drawing.Point(335, 453);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(95, 29);
             this.btnLogout.TabIndex = 2;
-            this.btnLogout.Text = "Logout";
+            this.btnLogout.Text = "Izloguj se";
             this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(241, 90);

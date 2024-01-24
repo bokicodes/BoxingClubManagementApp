@@ -46,25 +46,61 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmLogin.cs">
+    <Compile Include="forme\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmLogin.Designer.cs">
+    <Compile Include="forme\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="forme\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="forme\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forme\FrmTakmicari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forme\FrmTakmicari.Designer.cs">
+      <DependentUpon>FrmTakmicari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forme\FrmTreneri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forme\FrmTreneri.Designer.cs">
+      <DependentUpon>FrmTreneri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forme\FrmUnesiTakmicara.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forme\FrmUnesiTakmicara.Designer.cs">
+      <DependentUpon>FrmUnesiTakmicara.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forme\FrmUnesiTrenera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forme\FrmUnesiTrenera.Designer.cs">
+      <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmLogin.resx">
+    <EmbeddedResource Include="forme\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
+    <EmbeddedResource Include="forme\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forme\FrmTakmicari.resx">
+      <DependentUpon>FrmTakmicari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forme\FrmTreneri.resx">
+      <DependentUpon>FrmTreneri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forme\FrmUnesiTakmicara.resx">
+      <DependentUpon>FrmUnesiTakmicara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forme\FrmUnesiTrenera.resx">
+      <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Client
+namespace Client.forme
 {
-    public partial class FrmMain : Form
+    public partial class FrmUnesiTrenera : Form
     {
-        public FrmMain()
+        public FrmUnesiTrenera()
         {
             InitializeComponent();
         }
