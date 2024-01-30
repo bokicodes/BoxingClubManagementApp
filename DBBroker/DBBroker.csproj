@@ -44,5 +44,11 @@
     <Compile Include="Broker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Zajednicko\Zajednicko.csproj">
+      <Project>{F721FA08-FFBF-4F70-9176-9E5CC9A71218}</Project>
+      <Name>Zajednicko</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

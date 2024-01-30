@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B55EDB48-A131-4D89-9D8B-B7154BAFDE83}</ProjectGuid>
+    <ProjectGuid>{1C812EE2-3DFC-46D5-A78E-04A345265533}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Client</RootNamespace>
-    <AssemblyName>Client</AssemblyName>
+    <RootNamespace>Server</RootNamespace>
+    <AssemblyName>Server</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,62 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="forme\FrmLogin.cs">
+    <Compile Include="Controller.cs" />
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forme\FrmLogin.Designer.cs">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forme\FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forme\FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forme\FrmTakmicari.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forme\FrmTakmicari.Designer.cs">
-      <DependentUpon>FrmTakmicari.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forme\FrmTreneri.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forme\FrmTreneri.Designer.cs">
-      <DependentUpon>FrmTreneri.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forme\FrmUnesiTakmicara.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forme\FrmUnesiTakmicara.Designer.cs">
-      <DependentUpon>FrmUnesiTakmicara.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forme\FrmUnesiTrenera.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forme\FrmUnesiTrenera.Designer.cs">
-      <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="forme\FrmLogin.resx">
-      <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forme\FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forme\FrmTakmicari.resx">
-      <DependentUpon>FrmTakmicari.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forme\FrmTreneri.resx">
-      <DependentUpon>FrmTreneri.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forme\FrmUnesiTakmicara.resx">
-      <DependentUpon>FrmUnesiTakmicara.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="forme\FrmUnesiTrenera.resx">
-      <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -125,9 +78,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Server\Server.csproj">
-      <Project>{1C812EE2-3DFC-46D5-A78E-04A345265533}</Project>
-      <Name>Server</Name>
+    <ProjectReference Include="..\DBBroker\DBBroker.csproj">
+      <Project>{C1E1AD6C-EB86-42C3-8D0B-DE77025F75E6}</Project>
+      <Name>DBBroker</Name>
     </ProjectReference>
     <ProjectReference Include="..\Zajednicko\Zajednicko.csproj">
       <Project>{F721FA08-FFBF-4F70-9176-9E5CC9A71218}</Project>
