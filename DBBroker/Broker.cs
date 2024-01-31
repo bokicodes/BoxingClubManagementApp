@@ -11,6 +11,7 @@ namespace DBBroker
     public class Broker
     {
         private SqlConnection connection;
+        private SqlTransaction transaction;
 
         public Broker()
         {
@@ -27,7 +28,22 @@ namespace DBBroker
             connection?.Close();
         }
 
+        public void BeginTransaction()
+        {
+            transaction = connection.BeginTransaction();
+        }
         
+        public void Commit()
+        {
+            transaction.Commit();
+        }
+
+        public void Rollback()
+        {
+            transaction.Rollback();
+        }
+        
+
         public void DodajTakmicara(Takmicar t)
         {
             SqlCommand cmd = new SqlCommand("", connection);
