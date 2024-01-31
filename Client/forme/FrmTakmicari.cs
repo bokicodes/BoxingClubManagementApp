@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zajednicko.domen;
 
 namespace Client.forme
 {
@@ -22,7 +23,8 @@ namespace Client.forme
         }
         public void OsveziDgvTakmicara()
         {
-            dgvTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
+            BindingList<Takmicar> takmicari = new BindingList<Takmicar>(Controller.Instance.UcitajListuTakmicara());
+            dgvTakmicari.DataSource = takmicari;
 
             dgvTakmicari.Columns[0].Visible = false;
             dgvTakmicari.Columns[3].Visible = false;

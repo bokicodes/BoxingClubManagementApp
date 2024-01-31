@@ -60,9 +60,7 @@ namespace Client.forme
 
             Controller.Instance.DodajTakmicara(t);
             MessageBox.Show("Uspesno ste dodali takmicara!");
-            frmTakmicari.OsveziDgvTakmicara();
-            this.Close();            
-
+            frmTakmicari.OsveziDgvTakmicara();           
         }
 
         public bool Validacija()
