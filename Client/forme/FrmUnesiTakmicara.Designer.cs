@@ -41,6 +41,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cbStarosnaKategorija = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnIzmeni = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -74,7 +75,7 @@
             // btnSacuvaj
             // 
             this.btnSacuvaj.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnSacuvaj.Location = new System.Drawing.Point(168, 371);
+            this.btnSacuvaj.Location = new System.Drawing.Point(177, 371);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(114, 29);
             this.btnSacuvaj.TabIndex = 3;
@@ -170,11 +171,23 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(230, 20);
             this.dateTimePicker1.TabIndex = 13;
             // 
+            // btnIzmeni
+            // 
+            this.btnIzmeni.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnIzmeni.Location = new System.Drawing.Point(194, 371);
+            this.btnIzmeni.Name = "btnIzmeni";
+            this.btnIzmeni.Size = new System.Drawing.Size(114, 29);
+            this.btnIzmeni.TabIndex = 14;
+            this.btnIzmeni.Text = "Izmeni";
+            this.btnIzmeni.UseVisualStyleBackColor = true;
+            this.btnIzmeni.Click += new System.EventHandler(this.btnIzmeni_Click);
+            // 
             // FrmUnesiTakmicara
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 422);
+            this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
@@ -210,5 +223,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cbStarosnaKategorija;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Button btnIzmeni;
     }
 }

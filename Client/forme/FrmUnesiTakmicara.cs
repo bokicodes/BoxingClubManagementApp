@@ -20,16 +20,40 @@ namespace Client.forme
         {
             InitializeComponent();
 
+            btnSacuvaj.Visible = true;
+            btnIzmeni.Visible = false;
+
             cbKategorija.DataSource = Controller.Instance.UcitajListuKategorija();
             cbStarosnaKategorija.DataSource = Controller.Instance.UcitajListuStKategorija();
             
             this.frmTakmicari = frmTakmicari;
+            
+        }
+
+        public FrmUnesiTakmicara(FrmTakmicari frmTakmicari, Takmicar t)
+        {
+            InitializeComponent();
+
+            btnSacuvaj.Visible = false;
+            btnIzmeni.Visible = true;
+            cbKategorija.DataSource = Controller.Instance.UcitajListuKategorija();
+            cbStarosnaKategorija.DataSource = Controller.Instance.UcitajListuStKategorija();
+            this.frmTakmicari = frmTakmicari;
+
+            tbImeTakmicara.Text = t.Ime;
+            tbPrezimeTakmicara.Text = t.Prezime;
+            tbTezina.Text = t.Tezina.ToString();
+            cbKategorija.SelectedIndex = t.Kategorija.KategorijaId - 1;
+            cbStarosnaKategorija.SelectedIndex = t.StKategorija.StKategorijaId - 1;
+            dateTimePicker1.Value = t.DatRodj;
+            
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
             if (!Validacija())
             {
+                MessageBox.Show("Neuspesno cuvanje takmicara");
                 return;
             }
  
@@ -108,6 +132,17 @@ namespace Client.forme
                 return false;
             }
             return true;
+        }
+
+        private void btnIzmeni_Click(object sender, EventArgs e)
+        {
+            if (!Validacija())
+            {
+                MessageBox.Show("Neuspesna izmena");
+                return;
+            }
+
+
         }
     }
 }

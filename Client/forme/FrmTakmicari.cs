@@ -37,5 +37,20 @@ namespace Client.forme
             FrmUnesiTakmicara frmUnesiTakmicara = new FrmUnesiTakmicara(this);
             frmUnesiTakmicara.ShowDialog();
         }
+
+        private void btnDetalji_Click(object sender, EventArgs e)
+        {
+            if(dgvTakmicari.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste izabrali red!");
+                return;
+            }
+
+            Takmicar t = dgvTakmicari.SelectedRows[0].DataBoundItem as Takmicar;
+
+            FrmUnesiTakmicara frmUnesiTakmicara = new FrmUnesiTakmicara(this,t);
+            frmUnesiTakmicara.ShowDialog();
+
+        }
     }
 }
