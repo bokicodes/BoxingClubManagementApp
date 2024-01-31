@@ -65,5 +65,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public List<Takmicar> UcitajListuTakmicara()
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.UcitajListuTakmicara();
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

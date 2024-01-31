@@ -14,12 +14,16 @@ namespace Client.forme
 {
     public partial class FrmUnesiTakmicara : Form
     {
-        public FrmUnesiTakmicara()
+        private readonly FrmTakmicari frmTakmicari;
+
+        public FrmUnesiTakmicara(FrmTakmicari frmTakmicari)
         {
             InitializeComponent();
 
             cbKategorija.DataSource = Controller.Instance.UcitajListuKategorija();
             cbStarosnaKategorija.DataSource = Controller.Instance.UcitajListuStKategorija();
+            
+            this.frmTakmicari = frmTakmicari;
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
@@ -28,7 +32,7 @@ namespace Client.forme
             {
                 return;
             }
-
+ 
             string ime = tbImeTakmicara.Text;
             string prezime = tbPrezimeTakmicara.Text;
             Kategorija k = cbKategorija.SelectedItem as Kategorija;
@@ -56,6 +60,8 @@ namespace Client.forme
 
             Controller.Instance.DodajTakmicara(t);
             MessageBox.Show("Uspesno ste dodali takmicara!");
+            frmTakmicari.OsveziDgvTakmicara();
+            this.Close();            
 
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,23 @@ namespace Client.forme
         public FrmTakmicari()
         {
             InitializeComponent();
-        }
 
+            OsveziDgvTakmicara();
+            
+        }
+        public void OsveziDgvTakmicara()
+        {
+            dgvTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
+
+            dgvTakmicari.Columns[0].Visible = false;
+            dgvTakmicari.Columns[3].Visible = false;
+            dgvTakmicari.Columns[4].Visible = false;
+
+            dgvTakmicari.Columns[6].HeaderText = "Starosna Kategorija";
+        }
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            FrmUnesiTakmicara frmUnesiTakmicara = new FrmUnesiTakmicara();
+            FrmUnesiTakmicara frmUnesiTakmicara = new FrmUnesiTakmicara(this);
             frmUnesiTakmicara.ShowDialog();
         }
     }

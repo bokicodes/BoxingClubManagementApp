@@ -72,6 +72,7 @@
             this.dgvTakmicari.AllowUserToAddRows = false;
             this.dgvTakmicari.AllowUserToDeleteRows = false;
             this.dgvTakmicari.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvTakmicari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTakmicari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTakmicari.Location = new System.Drawing.Point(17, 129);
             this.dgvTakmicari.Name = "dgvTakmicari";
