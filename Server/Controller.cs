@@ -78,5 +78,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public void IzmeniTakmicara(Takmicar t)
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.IzmeniTakmicara(t);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

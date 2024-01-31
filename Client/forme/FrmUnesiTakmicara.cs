@@ -15,7 +15,7 @@ namespace Client.forme
     public partial class FrmUnesiTakmicara : Form
     {
         private readonly FrmTakmicari frmTakmicari;
-
+        private Takmicar t;
         public FrmUnesiTakmicara(FrmTakmicari frmTakmicari)
         {
             InitializeComponent();
@@ -39,6 +39,7 @@ namespace Client.forme
             cbKategorija.DataSource = Controller.Instance.UcitajListuKategorija();
             cbStarosnaKategorija.DataSource = Controller.Instance.UcitajListuStKategorija();
             this.frmTakmicari = frmTakmicari;
+            this.t = t;
 
             tbImeTakmicara.Text = t.Ime;
             tbPrezimeTakmicara.Text = t.Prezime;
@@ -68,17 +69,9 @@ namespace Client.forme
             {
                 Ime = ime,
                 Prezime = prezime,
-                Kategorija = new Kategorija
-                {
-                    KategorijaId = k.KategorijaId,
-                    Naziv = k.Naziv
-                },
+                Kategorija = k,
                 Tezina = tezina,
-                StKategorija = new StarosnaKategorija
-                {
-                    StKategorijaId = st.StKategorijaId,
-                    Naziv = st.Naziv
-                },
+                StKategorija = st,
                 DatRodj = datRodj
             };
 
@@ -142,7 +135,21 @@ namespace Client.forme
                 return;
             }
 
+            Takmicar noviT = new Takmicar
+            {
+                TakmicarId = t.TakmicarId,
+                Ime = tbImeTakmicara.Text,
+                Prezime = tbPrezimeTakmicara.Text,
+                DatRodj = dateTimePicker1.Value,
+                Tezina = int.Parse(tbTezina.Text),
+                Kategorija = cbKategorija.SelectedItem as Kategorija,
+                StKategorija = cbStarosnaKategorija.SelectedItem as StarosnaKategorija
+            };
 
+            Controller.Instance.IzmeniTakmicara(noviT);
+            MessageBox.Show("Uspesna izmena");
+            frmTakmicari.OsveziDgvTakmicara();
+            this.Close();
         }
     }
 }

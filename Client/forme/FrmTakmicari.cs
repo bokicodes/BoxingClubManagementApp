@@ -22,9 +22,8 @@ namespace Client.forme
             
         }
         public void OsveziDgvTakmicara()
-        {
-            BindingList<Takmicar> takmicari = new BindingList<Takmicar>(Controller.Instance.UcitajListuTakmicara());
-            dgvTakmicari.DataSource = takmicari;
+        {      
+            dgvTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
 
             dgvTakmicari.Columns[0].Visible = false;
             dgvTakmicari.Columns[3].Visible = false;

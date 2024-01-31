@@ -146,5 +146,24 @@ namespace DBBroker
             }
             return listaTakm;
         }
+
+        public void IzmeniTakmicara(Takmicar t)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"update takmicar set ime=@ime,prezime=@prezime," +
+                $"tezina=@tezina,DatRodj=@DatRodj,Kategorija=@KatId," +
+                $"StKategorija=@StKatId where TakmicarId=@TId";
+
+            cmd.Parameters.AddWithValue("@ime", t.Ime);
+            cmd.Parameters.AddWithValue("@prezime", t.Prezime);
+            cmd.Parameters.AddWithValue("@tezina", t.Tezina);
+            cmd.Parameters.AddWithValue("@DatRodj", t.DatRodj);
+            cmd.Parameters.AddWithValue("@KatId", t.Kategorija.KategorijaId);
+            cmd.Parameters.AddWithValue("@StKatId", t.StKategorija.StKategorijaId);
+            cmd.Parameters.AddWithValue("@TId", t.TakmicarId);
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }
