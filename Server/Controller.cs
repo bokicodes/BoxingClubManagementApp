@@ -91,5 +91,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public List<Takmicar> PretraziTakmicare(string text)
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.PretraziTakmicare(text);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

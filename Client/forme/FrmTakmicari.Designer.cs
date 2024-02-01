@@ -66,6 +66,7 @@
             this.tbPretraziTakmicare.Name = "tbPretraziTakmicare";
             this.tbPretraziTakmicare.Size = new System.Drawing.Size(416, 20);
             this.tbPretraziTakmicare.TabIndex = 2;
+            this.tbPretraziTakmicare.TextChanged += new System.EventHandler(this.tbPretraziTakmicare_TextChanged);
             // 
             // dgvTakmicari
             // 

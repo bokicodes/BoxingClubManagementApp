@@ -165,5 +165,43 @@ namespace DBBroker
 
             cmd.ExecuteNonQuery();
         }
+
+        public List<Takmicar> PretraziTakmicare(string text)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"select * from takmicar t join kategorija k on t.Kategorija = k.KategorijaId" +
+                $" join StarosnaKategorija sk on t.StKategorija = sk.StKategorijaId where Ime like '%{text}%'";
+
+            List<Takmicar> listaNadjenihTakmicara = new List<Takmicar>();
+
+            using(SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Takmicar t = new Takmicar
+                    {
+                        TakmicarId = (int)reader["TakmicarId"],
+                        Ime = (string)reader["Ime"],
+                        Prezime = (string)reader["Prezime"],
+                        Tezina = (int)reader["Tezina"],
+                        DatRodj = (DateTime)reader["DatRodj"],
+                        Kategorija = new Kategorija
+                        {
+                            KategorijaId = (int)reader["KategorijaId"],
+                            Naziv = (string)reader[8]
+                        },
+                        StKategorija = new StarosnaKategorija
+                        {
+                            StKategorijaId = (int)reader["StKategorijaId"],
+                            Naziv = (string)reader[10]
+                        }
+                    };
+
+                    listaNadjenihTakmicara.Add(t);
+                }
+            }
+            return listaNadjenihTakmicara;
+        }
     }
 }
