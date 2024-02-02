@@ -52,6 +52,7 @@ namespace Client.forme
         {
             string text = tbPretraziTrenere.Text;
 
+
             dgvTreneri.DataSource = Controller.Instance.PretraziTrenere(text);
             
             dgvTreneri.Columns[0].Visible = false;
