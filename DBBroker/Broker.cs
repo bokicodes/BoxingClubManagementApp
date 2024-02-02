@@ -270,5 +270,20 @@ namespace DBBroker
             }
             return listaTrenera;
         }
+
+        public void IzmeniTrenera(Trener t)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"update trener set ime=@ime,prezime=@prezime,grad=@gradId" +
+                $" where TrenerId = @TId";
+
+            cmd.Parameters.AddWithValue("@ime", t.Ime);
+            cmd.Parameters.AddWithValue("@prezime", t.Prezime);
+            cmd.Parameters.AddWithValue("@gradId", t.Grad.GradId);
+            cmd.Parameters.AddWithValue("@TId", t.TrenerId);
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }

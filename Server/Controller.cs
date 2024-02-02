@@ -143,5 +143,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public void IzmeniTrenera(Trener t)
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.IzmeniTrenera(t);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

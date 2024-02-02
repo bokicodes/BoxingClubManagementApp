@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zajednicko.domen;
 
 namespace Client.forme
 {
@@ -30,6 +31,20 @@ namespace Client.forme
         private void btnUnesi_Click(object sender, EventArgs e)
         {
             FrmUnesiTrenera frmUnesiTrenera = new FrmUnesiTrenera(this);
+            frmUnesiTrenera.ShowDialog();
+        }
+
+        private void btnDetalji_Click(object sender, EventArgs e)
+        {
+            if(dgvTreneri.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali red");
+                return;
+            }
+
+            Trener t = dgvTreneri.SelectedRows[0].DataBoundItem as Trener;
+
+            FrmUnesiTrenera frmUnesiTrenera = new FrmUnesiTrenera(this, t);
             frmUnesiTrenera.ShowDialog();
         }
     }

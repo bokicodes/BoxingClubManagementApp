@@ -15,6 +15,7 @@ namespace Client.forme
     public partial class FrmUnesiTrenera : Form
     {
         private readonly FrmTreneri frmTreneri;
+        private readonly Trener t;
 
         public FrmUnesiTrenera(FrmTreneri frmTreneri)
         {
@@ -23,6 +24,25 @@ namespace Client.forme
             cbGrad.DataSource = Controller.Instance.UcitajListuGradova();
 
             this.frmTreneri = frmTreneri;
+
+            btnSacuvaj.Visible = true;
+            btnIzmeni.Visible = false;
+        }
+
+        public FrmUnesiTrenera(FrmTreneri frmTreneri, Trener t)
+        {
+            InitializeComponent();
+
+            this.frmTreneri = frmTreneri;
+            this.t = t;
+
+            btnSacuvaj.Visible = false;
+            btnIzmeni.Visible = true;
+
+            cbGrad.DataSource = Controller.Instance.UcitajListuGradova();
+            tbImeTrenera.Text = t.Ime;
+            tbPrezimeTrenera.Text = t.Prezime;
+            cbGrad.SelectedIndex = t.Grad.GradId - 1;
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
@@ -78,6 +98,28 @@ namespace Client.forme
                 return false;
             }
             return true;
+        }
+
+        private void btnIzmeni_Click(object sender, EventArgs e)
+        {
+            if (!Validacija())
+            {
+                MessageBox.Show("Neuspesna izmena trenera");
+                return;
+            }
+
+            Trener noviTrener = new Trener
+            {
+                TrenerId = t.TrenerId,
+                Ime = tbImeTrenera.Text,
+                Prezime = tbPrezimeTrenera.Text,
+                Grad = cbGrad.SelectedItem as Grad
+            };
+
+            Controller.Instance.IzmeniTrenera(noviTrener);
+            frmTreneri.OsveziListuTrenera();
+            MessageBox.Show("Uspesna izmena trenera");
+            this.Close();
         }
     }
 }
