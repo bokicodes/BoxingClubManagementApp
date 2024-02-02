@@ -79,6 +79,7 @@
             this.tbPretraziTrenere.Name = "tbPretraziTrenere";
             this.tbPretraziTrenere.Size = new System.Drawing.Size(416, 20);
             this.tbPretraziTrenere.TabIndex = 8;
+            this.tbPretraziTrenere.TextChanged += new System.EventHandler(this.tbPretraziTrenere_TextChanged);
             // 
             // label2
             // 

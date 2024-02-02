@@ -285,5 +285,35 @@ namespace DBBroker
 
             cmd.ExecuteNonQuery();
         }
+
+        public List<Trener> PretraziTrenere(string text)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"select * from trener t join grad g on t.Grad = g.GradId where t.Ime like '%{text}%'";
+
+            List<Trener> listaTrenera = new List<Trener>();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Trener t = new Trener
+                    {
+                        TrenerId = (int)reader["TrenerId"],
+                        Ime = (string)reader["Ime"],
+                        Prezime = (string)reader["Prezime"],
+                        Grad = new Grad
+                        {
+                            GradId = (int)reader["GradId"],
+                            Naziv = (string)reader["Naziv"],
+                            PostanskiBroj = (string)reader["PostanskiBroj"]
+                        }
+                    };
+                    listaTrenera.Add(t);
+                }
+            }
+            return listaTrenera;
+        }
     }
 }

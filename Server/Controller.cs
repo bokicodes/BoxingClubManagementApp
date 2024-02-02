@@ -156,5 +156,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public List<Trener> PretraziTrenere(string text)
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.PretraziTrenere(text);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

@@ -47,5 +47,15 @@ namespace Client.forme
             FrmUnesiTrenera frmUnesiTrenera = new FrmUnesiTrenera(this, t);
             frmUnesiTrenera.ShowDialog();
         }
+
+        private void tbPretraziTrenere_TextChanged(object sender, EventArgs e)
+        {
+            string text = tbPretraziTrenere.Text;
+
+            dgvTreneri.DataSource = Controller.Instance.PretraziTrenere(text);
+            
+            dgvTreneri.Columns[0].Visible = false;
+            dgvTreneri.Columns[3].HeaderText = "Mesto življenja";
+        }
     }
 }
