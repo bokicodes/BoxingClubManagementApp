@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.label3 = new System.Windows.Forms.Label();
-            this.tbPrezimeTakmicara = new System.Windows.Forms.TextBox();
+            this.tbPrezimeTrenera = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSacuvaj = new System.Windows.Forms.Button();
-            this.cbKategorija = new System.Windows.Forms.ComboBox();
-            this.tbImeTakmicara = new System.Windows.Forms.TextBox();
+            this.cbGrad = new System.Windows.Forms.ComboBox();
+            this.tbImeTrenera = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -48,13 +48,13 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "Mesto življenja:";
             // 
-            // tbPrezimeTakmicara
+            // tbPrezimeTrenera
             // 
-            this.tbPrezimeTakmicara.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbPrezimeTakmicara.Location = new System.Drawing.Point(200, 99);
-            this.tbPrezimeTakmicara.Name = "tbPrezimeTakmicara";
-            this.tbPrezimeTakmicara.Size = new System.Drawing.Size(230, 20);
-            this.tbPrezimeTakmicara.TabIndex = 12;
+            this.tbPrezimeTrenera.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPrezimeTrenera.Location = new System.Drawing.Point(200, 99);
+            this.tbPrezimeTrenera.Name = "tbPrezimeTrenera";
+            this.tbPrezimeTrenera.Size = new System.Drawing.Size(230, 20);
+            this.tbPrezimeTrenera.TabIndex = 12;
             // 
             // label2
             // 
@@ -76,23 +76,24 @@
             this.btnSacuvaj.TabIndex = 10;
             this.btnSacuvaj.Text = "Sačuvaj";
             this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
-            // cbKategorija
+            // cbGrad
             // 
-            this.cbKategorija.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cbKategorija.FormattingEnabled = true;
-            this.cbKategorija.Location = new System.Drawing.Point(200, 157);
-            this.cbKategorija.Name = "cbKategorija";
-            this.cbKategorija.Size = new System.Drawing.Size(230, 21);
-            this.cbKategorija.TabIndex = 9;
+            this.cbGrad.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbGrad.FormattingEnabled = true;
+            this.cbGrad.Location = new System.Drawing.Point(200, 157);
+            this.cbGrad.Name = "cbGrad";
+            this.cbGrad.Size = new System.Drawing.Size(230, 21);
+            this.cbGrad.TabIndex = 9;
             // 
-            // tbImeTakmicara
+            // tbImeTrenera
             // 
-            this.tbImeTakmicara.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbImeTakmicara.Location = new System.Drawing.Point(200, 39);
-            this.tbImeTakmicara.Name = "tbImeTakmicara";
-            this.tbImeTakmicara.Size = new System.Drawing.Size(230, 20);
-            this.tbImeTakmicara.TabIndex = 8;
+            this.tbImeTrenera.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbImeTrenera.Location = new System.Drawing.Point(200, 39);
+            this.tbImeTrenera.Name = "tbImeTrenera";
+            this.tbImeTrenera.Size = new System.Drawing.Size(230, 20);
+            this.tbImeTrenera.TabIndex = 8;
             // 
             // label1
             // 
@@ -111,11 +112,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(461, 289);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.tbPrezimeTakmicara);
+            this.Controls.Add(this.tbPrezimeTrenera);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSacuvaj);
-            this.Controls.Add(this.cbKategorija);
-            this.Controls.Add(this.tbImeTakmicara);
+            this.Controls.Add(this.cbGrad);
+            this.Controls.Add(this.tbImeTrenera);
             this.Controls.Add(this.label1);
             this.Name = "FrmUnesiTrenera";
             this.Text = "Unos Trenera";
@@ -127,11 +128,11 @@
         #endregion
 
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbPrezimeTakmicara;
+        private System.Windows.Forms.TextBox tbPrezimeTrenera;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSacuvaj;
-        private System.Windows.Forms.ComboBox cbKategorija;
-        private System.Windows.Forms.TextBox tbImeTakmicara;
+        private System.Windows.Forms.ComboBox cbGrad;
+        private System.Windows.Forms.TextBox tbImeTrenera;
         private System.Windows.Forms.Label label1;
     }
 }

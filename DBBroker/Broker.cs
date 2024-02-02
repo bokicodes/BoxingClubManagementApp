@@ -203,5 +203,72 @@ namespace DBBroker
             }
             return listaNadjenihTakmicara;
         }
+
+        public void SacuvajTrenera(Trener t)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"insert into trener values (@ime,@prezime,@gradId)";
+
+            cmd.Parameters.AddWithValue("@ime", t.Ime);
+            cmd.Parameters.AddWithValue("@prezime", t.Prezime);
+            cmd.Parameters.AddWithValue("@gradId", t.Grad.GradId);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public List<Grad> UcitajListuGradova()
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"select * from grad";
+
+            List<Grad> listaGradova = new List<Grad>();
+
+            using(SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while(reader.Read())
+                {
+                    Grad grad = new Grad()
+                    {
+                        GradId = (int)reader["GradId"],
+                        Naziv = (string)reader["Naziv"],
+                        PostanskiBroj = (string)reader["PostanskiBroj"]
+                    };
+                    listaGradova.Add(grad);
+                }
+            }
+            return listaGradova;
+        }
+
+        public List<Trener> UcitajListuTrenera()
+        {
+            SqlCommand cmd = new SqlCommand("",connection);
+
+            cmd.CommandText = $"select * from trener t join grad g on t.Grad = g.GradId";
+
+            List<Trener> listaTrenera = new List<Trener>();
+
+            using(SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Trener t = new Trener
+                    {
+                        TrenerId = (int)reader["TrenerId"],
+                        Ime = (string)reader["Ime"],
+                        Prezime = (string)reader["Prezime"],
+                        Grad = new Grad
+                        {
+                            GradId = (int)reader["GradId"],
+                            Naziv = (string)reader["Naziv"],
+                            PostanskiBroj = (string)reader["PostanskiBroj"]
+                        }
+                    };
+                    listaTrenera.Add(t);
+                }
+            }
+            return listaTrenera;
+        }
     }
 }

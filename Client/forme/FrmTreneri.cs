@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,20 @@ namespace Client.forme
         public FrmTreneri()
         {
             InitializeComponent();
+
+            OsveziListuTrenera();
+        }
+
+        public void OsveziListuTrenera()
+        {
+            dgvTreneri.DataSource = Controller.Instance.UcitajListuTrenera();
+            dgvTreneri.Columns[0].Visible = false;
+            dgvTreneri.Columns[3].HeaderText = "Mesto življenja";
         }
 
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            FrmUnesiTrenera frmUnesiTrenera = new FrmUnesiTrenera();
+            FrmUnesiTrenera frmUnesiTrenera = new FrmUnesiTrenera(this);
             frmUnesiTrenera.ShowDialog();
         }
     }

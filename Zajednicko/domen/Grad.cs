@@ -11,5 +11,10 @@ namespace Zajednicko.domen
         public int GradId { get; set; }
         public string Naziv { get; set; }
         public string PostanskiBroj { get; set; }
+
+        public override string ToString()
+        {
+            return Naziv;
+        }
     }
 }

@@ -63,6 +63,7 @@
             this.dgvTreneri.AllowUserToAddRows = false;
             this.dgvTreneri.AllowUserToDeleteRows = false;
             this.dgvTreneri.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.dgvTreneri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTreneri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTreneri.Location = new System.Drawing.Point(24, 127);
             this.dgvTreneri.Name = "dgvTreneri";

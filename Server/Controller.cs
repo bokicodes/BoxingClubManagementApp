@@ -104,5 +104,44 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public void SacuvajTrenera(Trener t)
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.SacuvajTrenera(t);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
+
+        public List<Grad> UcitajListuGradova()
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.UcitajListuGradova();
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
+
+        public object UcitajListuTrenera()
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.UcitajListuTrenera();
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }
