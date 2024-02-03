@@ -55,6 +55,7 @@
             this.btnUnesi.TabIndex = 14;
             this.btnUnesi.Text = "Unesi novu dodelu";
             this.btnUnesi.UseVisualStyleBackColor = true;
+            this.btnUnesi.Click += new System.EventHandler(this.btnUnesi_Click);
             // 
             // btnDetalji
             // 

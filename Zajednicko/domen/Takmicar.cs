@@ -16,5 +16,10 @@ namespace Zajednicko.domen
         public Kategorija Kategorija { get; set; }
         public StarosnaKategorija StKategorija { get; set; }
         public List<Dodela> ListaDodela { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
     }
 }

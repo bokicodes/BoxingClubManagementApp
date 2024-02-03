@@ -16,5 +16,11 @@ namespace Client.forme
         {
             InitializeComponent();
         }
+
+        private void btnUnesi_Click(object sender, EventArgs e)
+        {
+            FrmUnesiDodelu frmUnesiDodelu = new FrmUnesiDodelu();
+            frmUnesiDodelu.ShowDialog();
+        }
     }
 }

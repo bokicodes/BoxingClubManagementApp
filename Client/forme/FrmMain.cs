@@ -34,5 +34,11 @@ namespace Client
         {
             this.Close();
         }
+
+        private void dodelaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDodela frmDodela = new FrmDodela();
+            frmDodela.ShowDialog();
+        }
     }
 }

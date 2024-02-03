@@ -13,5 +13,10 @@ namespace Zajednicko.domen
         public string Prezime { get; set; }
         public Grad Grad { get; set; }
         public List<Dodela> ListaDodela { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Ime} {Prezime}";
+        }
     }
 }

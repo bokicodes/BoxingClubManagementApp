@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,10 @@ namespace Client.forme
         public FrmUnesiDodelu()
         {
             InitializeComponent();
+
+            cbTreneri.DataSource = Controller.Instance.UcitajListuTrenera();
+            cbTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
+
         }
     }
 }
