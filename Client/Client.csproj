@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="forme\FrmDodela.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forme\FrmDodela.Designer.cs">
+      <DependentUpon>FrmDodela.cs</DependentUpon>
+    </Compile>
     <Compile Include="forme\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +76,12 @@
     <Compile Include="forme\FrmTreneri.Designer.cs">
       <DependentUpon>FrmTreneri.cs</DependentUpon>
     </Compile>
+    <Compile Include="forme\FrmUnesiDodelu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forme\FrmUnesiDodelu.Designer.cs">
+      <DependentUpon>FrmUnesiDodelu.cs</DependentUpon>
+    </Compile>
     <Compile Include="forme\FrmUnesiTakmicara.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="forme\FrmDodela.resx">
+      <DependentUpon>FrmDodela.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="forme\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="forme\FrmTreneri.resx">
       <DependentUpon>FrmTreneri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forme\FrmUnesiDodelu.resx">
+      <DependentUpon>FrmUnesiDodelu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forme\FrmUnesiTakmicara.resx">
       <DependentUpon>FrmUnesiTakmicara.cs</DependentUpon>
