@@ -169,5 +169,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public List<Dodela> UcitajListuDodela()
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.UictajListuDodela();
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

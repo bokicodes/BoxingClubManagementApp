@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,8 @@ namespace Client.forme
         public FrmDodela()
         {
             InitializeComponent();
+
+            dgvDodela.DataSource = Controller.Instance.UcitajListuDodela();
         }
 
         private void btnUnesi_Click(object sender, EventArgs e)

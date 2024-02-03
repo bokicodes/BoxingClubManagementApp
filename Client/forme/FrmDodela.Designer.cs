@@ -40,7 +40,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 43);
+            this.label1.Location = new System.Drawing.Point(150, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(301, 25);
             this.label1.TabIndex = 7;
@@ -49,7 +49,7 @@
             // btnUnesi
             // 
             this.btnUnesi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUnesi.Location = new System.Drawing.Point(632, 264);
+            this.btnUnesi.Location = new System.Drawing.Point(580, 280);
             this.btnUnesi.Name = "btnUnesi";
             this.btnUnesi.Size = new System.Drawing.Size(143, 32);
             this.btnUnesi.TabIndex = 14;
@@ -60,7 +60,7 @@
             // btnDetalji
             // 
             this.btnDetalji.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDetalji.Location = new System.Drawing.Point(632, 202);
+            this.btnDetalji.Location = new System.Drawing.Point(580, 190);
             this.btnDetalji.Name = "btnDetalji";
             this.btnDetalji.Size = new System.Drawing.Size(143, 30);
             this.btnDetalji.TabIndex = 13;
@@ -71,23 +71,22 @@
             // 
             this.dgvDodela.AllowUserToAddRows = false;
             this.dgvDodela.AllowUserToDeleteRows = false;
-            this.dgvDodela.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvDodela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDodela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDodela.Location = new System.Drawing.Point(12, 98);
+            this.dgvDodela.Location = new System.Drawing.Point(96, 101);
             this.dgvDodela.Name = "dgvDodela";
             this.dgvDodela.ReadOnly = true;
-            this.dgvDodela.Size = new System.Drawing.Size(580, 297);
-            this.dgvDodela.TabIndex = 12;
+            this.dgvDodela.Size = new System.Drawing.Size(430, 289);
+            this.dgvDodela.TabIndex = 15;
             // 
             // FrmDodela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvDodela);
             this.Controls.Add(this.btnUnesi);
             this.Controls.Add(this.btnDetalji);
-            this.Controls.Add(this.dgvDodela);
             this.Controls.Add(this.label1);
             this.Name = "FrmDodela";
             this.Text = "FrmDodela";
