@@ -8,7 +8,7 @@ namespace Zajednicko.domen
 {
     public class Dodela
     {
-        public Takmicar Takmicar { get; set; }
         public Trener Trener { get; set; }
+        public Takmicar Takmicar { get; set; }
     }
 }

@@ -41,7 +41,7 @@
             // cbTreneri
             // 
             this.cbTreneri.FormattingEnabled = true;
-            this.cbTreneri.Location = new System.Drawing.Point(35, 52);
+            this.cbTreneri.Location = new System.Drawing.Point(52, 54);
             this.cbTreneri.Name = "cbTreneri";
             this.cbTreneri.Size = new System.Drawing.Size(235, 21);
             this.cbTreneri.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 24);
+            this.label1.Location = new System.Drawing.Point(49, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 16);
             this.label1.TabIndex = 1;
@@ -65,13 +65,15 @@
             this.btnDodajUListu.TabIndex = 2;
             this.btnDodajUListu.Text = "Dodaj u listu";
             this.btnDodajUListu.UseVisualStyleBackColor = true;
+            this.btnDodajUListu.Click += new System.EventHandler(this.btnDodajUListu_Click);
             // 
             // dgvDodela
             // 
+            this.dgvDodela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDodela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDodela.Location = new System.Drawing.Point(12, 125);
+            this.dgvDodela.Location = new System.Drawing.Point(112, 125);
             this.dgvDodela.Name = "dgvDodela";
-            this.dgvDodela.Size = new System.Drawing.Size(657, 289);
+            this.dgvDodela.Size = new System.Drawing.Size(430, 289);
             this.dgvDodela.TabIndex = 3;
             // 
             // label2
@@ -95,7 +97,7 @@
             // btnSacuvaj
             // 
             this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSacuvaj.Location = new System.Drawing.Point(694, 375);
+            this.btnSacuvaj.Location = new System.Drawing.Point(623, 375);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(94, 39);
             this.btnSacuvaj.TabIndex = 8;
