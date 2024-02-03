@@ -69,10 +69,13 @@
             // 
             // dgvDodela
             // 
+            this.dgvDodela.AllowUserToAddRows = false;
+            this.dgvDodela.AllowUserToDeleteRows = false;
             this.dgvDodela.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDodela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDodela.Location = new System.Drawing.Point(112, 125);
             this.dgvDodela.Name = "dgvDodela";
+            this.dgvDodela.ReadOnly = true;
             this.dgvDodela.Size = new System.Drawing.Size(430, 289);
             this.dgvDodela.TabIndex = 3;
             // 
