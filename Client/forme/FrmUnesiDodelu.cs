@@ -37,6 +37,15 @@ namespace Client.forme
                 MessageBox.Show("Morate izabrati i trenera i takmicara");
                 return;
             }
+            
+            foreach(Dodela d in listaDodela)
+            {
+                if(d.Trener.TrenerId == trener.TrenerId && d.Takmicar.TakmicarId == takmicar.TakmicarId)
+                {
+                    MessageBox.Show("Vec postoji u listi ta kombinacija");
+                    return;
+                }
+            }
 
             Dodela dodela = new Dodela
             {
