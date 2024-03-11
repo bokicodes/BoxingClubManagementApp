@@ -321,7 +321,7 @@ namespace DBBroker
         {
             SqlCommand cmd = new SqlCommand("", connection);
 
-            cmd.CommandText = $"select * from dodela d join takmicar t on d.Takmicar = t.TakmicarId join kategorija k on t.Kategorija = k.KategorijaId join StarosnaKategorija sk on t.StKategorija = sk.StKategorijaId join trener tr on d.Trener = tr.TrenerId join grad g on tr.Grad = g.GradId";
+            cmd.CommandText = $"select * from dodela d join takmicar t on d.Takmicar = t.TakmicarId join kategorija k on t.Kategorija = k.KategorijaId join StarosnaKategorija sk on t.StKategorija = sk.StKategorijaId join trener tr on d.Trener = tr.TrenerId join grad g on tr.Grad = g.GradId order by tr.Ime asc";
 
             List<Dodela> listaDodela = new List<Dodela>();
 
