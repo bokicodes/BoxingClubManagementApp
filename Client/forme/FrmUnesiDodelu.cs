@@ -31,6 +31,8 @@ namespace Client.forme
 
         private void btnDodajUListu_Click(object sender, EventArgs e)
         {
+            List<Dodela> sacuvanaListaDodela = Controller.Instance.UcitajListuDodela();
+
             Trener trener = cbTreneri.SelectedItem as Trener;
             Takmicar takmicar = cbTakmicari.SelectedItem as Takmicar;
 
@@ -40,6 +42,15 @@ namespace Client.forme
                 return;
             }
             
+            foreach(Dodela d in sacuvanaListaDodela)
+            {
+                if (d.Trener.TrenerId == trener.TrenerId && d.Takmicar.TakmicarId == takmicar.TakmicarId)
+                {
+                    MessageBox.Show("Ta kombinacija trenera i takmicara je vec sacuvana!");
+                    return;
+                }
+            }
+
             foreach(Dodela d in listaDodela)
             {
                 if(d.Trener.TrenerId == trener.TrenerId && d.Takmicar.TakmicarId == takmicar.TakmicarId)
