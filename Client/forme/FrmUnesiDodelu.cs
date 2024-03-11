@@ -71,6 +71,12 @@ namespace Client.forme
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
+            if (listaDodela.Count == 0)
+            {
+                MessageBox.Show("Morate prvo dodati u listu nekog trenera i takmičara");
+                return;
+            }
+
             try
             {
                 Controller.Instance.SacuvajDodelu(listaDodela);
