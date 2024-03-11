@@ -55,5 +55,18 @@ namespace Client.forme
 
             listaDodela.Add(dodela);
         }
+
+        private void btnSacuvaj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Controller.Instance.SacuvajDodelu(listaDodela);
+                MessageBox.Show("Uspesno ste dodelili takmicare trenerima");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Doslo je do greske prilikom cuvanja dodela!");
+            }
+        }
     }
 }

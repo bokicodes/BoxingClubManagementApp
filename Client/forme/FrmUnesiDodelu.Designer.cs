@@ -106,6 +106,7 @@
             this.btnSacuvaj.TabIndex = 8;
             this.btnSacuvaj.Text = "Sačuvaj";
             this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
             // FrmUnesiDodelu
             // 

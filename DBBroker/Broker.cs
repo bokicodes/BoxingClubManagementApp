@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -370,6 +371,18 @@ namespace DBBroker
                 }
             }
             return listaDodela;
+        }
+
+        public void SacuvajDodelu(Dodela d)
+        {
+            SqlCommand cmd = new SqlCommand("", connection,transaction);
+
+            cmd.CommandText = $"insert into dodela values (@takmicarID,@trenerID)";
+
+            cmd.Parameters.AddWithValue("@takmicarID", d.Takmicar.TakmicarId);
+            cmd.Parameters.AddWithValue("@trenerID",d.Trener.TrenerId);
+
+            cmd.ExecuteNonQuery();
         }
     }
 }
