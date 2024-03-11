@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -62,6 +63,26 @@ namespace Client.forme
             dgvTakmicari.Columns[4].Visible = false;
 
             dgvTakmicari.Columns[6].HeaderText = "Starosna Kategorija";
+        }
+
+        private void btnObrisiTakmicara_Click(object sender, EventArgs e)
+        {
+            if (dgvTakmicari.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali red");
+                return;
+            }
+
+            Takmicar t = dgvTakmicari.SelectedRows[0].DataBoundItem as Takmicar;
+            try
+            {
+                Controller.Instance.ObrisiTakmicara(t);
+                OsveziDgvTakmicara();
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Morate prvo obrisati u kartici 'Dodela' sve dodele sa ovim takmičarom");
+            }
         }
     }
 }

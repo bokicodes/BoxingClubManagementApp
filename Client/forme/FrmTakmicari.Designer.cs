@@ -34,6 +34,7 @@
             this.dgvTakmicari = new System.Windows.Forms.DataGridView();
             this.btnDetalji = new System.Windows.Forms.Button();
             this.btnUnesi = new System.Windows.Forms.Button();
+            this.btnObrisiTakmicara = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTakmicari)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,11 +104,23 @@
             this.btnUnesi.UseVisualStyleBackColor = true;
             this.btnUnesi.Click += new System.EventHandler(this.btnUnesi_Click);
             // 
+            // btnObrisiTakmicara
+            // 
+            this.btnObrisiTakmicara.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnObrisiTakmicara.Location = new System.Drawing.Point(632, 394);
+            this.btnObrisiTakmicara.Name = "btnObrisiTakmicara";
+            this.btnObrisiTakmicara.Size = new System.Drawing.Size(143, 32);
+            this.btnObrisiTakmicara.TabIndex = 6;
+            this.btnObrisiTakmicara.Text = "Obriši takmičara";
+            this.btnObrisiTakmicara.UseVisualStyleBackColor = true;
+            this.btnObrisiTakmicara.Click += new System.EventHandler(this.btnObrisiTakmicara_Click);
+            // 
             // FrmTakmicari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnObrisiTakmicara);
             this.Controls.Add(this.btnUnesi);
             this.Controls.Add(this.btnDetalji);
             this.Controls.Add(this.dgvTakmicari);
@@ -130,5 +143,6 @@
         private System.Windows.Forms.DataGridView dgvTakmicari;
         private System.Windows.Forms.Button btnDetalji;
         private System.Windows.Forms.Button btnUnesi;
+        private System.Windows.Forms.Button btnObrisiTakmicara;
     }
 }

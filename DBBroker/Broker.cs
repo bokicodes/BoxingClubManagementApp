@@ -384,5 +384,39 @@ namespace DBBroker
 
             cmd.ExecuteNonQuery();
         }
+
+        public void ObrisiTrenera(Trener t)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"DELETE FROM Trener WHERE TrenerId=@trenerId";
+
+            cmd.Parameters.AddWithValue("@trenerId", t.TrenerId);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public void ObrisiTakmicara(Takmicar t)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"DELETE FROM Takmicar WHERE TakmicarId=@takmicarId";
+
+            cmd.Parameters.AddWithValue("@takmicarId", t.TakmicarId);
+
+            cmd.ExecuteNonQuery();
+        }
+
+        public void ObrisiDodelu(Dodela d)
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"DELETE FROM Dodela WHERE Takmicar=@takmicarId AND Trener=@trenerId";
+
+            cmd.Parameters.AddWithValue("@takmicarId", d.Takmicar.TakmicarId);
+            cmd.Parameters.AddWithValue("@trenerId", d.Trener.TrenerId);
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -183,24 +184,6 @@ namespace Server
                 broker.CloseConnection();
             }
         }
-
-        public void SacuvajDodele(BindingList<Dodela> listaDodela)
-        {
-            try
-            {
-                broker.OpenConnection();
-                broker.BeginTransaction();
-            }catch(Exception)
-            {
-                broker.Rollback();
-                throw;
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
-        }
-
         public void SacuvajDodelu(BindingList<Dodela> listaDodela)
         {
             try
@@ -219,6 +202,53 @@ namespace Server
             {
                 broker.Rollback();
                 throw;
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
+
+        public void ObrisiTrenera(Trener t)
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.ObrisiTrenera(t);
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
+
+        public void ObrisiTakmicara(Takmicar t)
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.ObrisiTakmicara(t);
+            }
+            catch (SqlException)
+            {
+                throw;
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
+
+        public void ObrisiDodelu(Dodela d)
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.ObrisiDodelu(d);
             }
             finally
             {

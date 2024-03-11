@@ -32,6 +32,7 @@
             this.btnUnesi = new System.Windows.Forms.Button();
             this.btnDetalji = new System.Windows.Forms.Button();
             this.dgvDodela = new System.Windows.Forms.DataGridView();
+            this.btnObrisiDodelu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDodela)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,11 +80,23 @@
             this.dgvDodela.Size = new System.Drawing.Size(430, 289);
             this.dgvDodela.TabIndex = 15;
             // 
+            // btnObrisiDodelu
+            // 
+            this.btnObrisiDodelu.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnObrisiDodelu.Location = new System.Drawing.Point(580, 358);
+            this.btnObrisiDodelu.Name = "btnObrisiDodelu";
+            this.btnObrisiDodelu.Size = new System.Drawing.Size(143, 32);
+            this.btnObrisiDodelu.TabIndex = 16;
+            this.btnObrisiDodelu.Text = "Obriši dodelu";
+            this.btnObrisiDodelu.UseVisualStyleBackColor = true;
+            this.btnObrisiDodelu.Click += new System.EventHandler(this.btnObrisiDodelu_Click);
+            // 
             // FrmDodela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnObrisiDodelu);
             this.Controls.Add(this.dgvDodela);
             this.Controls.Add(this.btnUnesi);
             this.Controls.Add(this.btnDetalji);
@@ -102,5 +115,6 @@
         private System.Windows.Forms.Button btnUnesi;
         private System.Windows.Forms.Button btnDetalji;
         private System.Windows.Forms.DataGridView dgvDodela;
+        private System.Windows.Forms.Button btnObrisiDodelu;
     }
 }
