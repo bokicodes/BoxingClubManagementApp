@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.cbTakmicari = new System.Windows.Forms.ComboBox();
             this.btnSacuvaj = new System.Windows.Forms.Button();
+            this.btnObrisiDodelu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDodela)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,19 +101,31 @@
             // btnSacuvaj
             // 
             this.btnSacuvaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSacuvaj.Location = new System.Drawing.Point(623, 375);
+            this.btnSacuvaj.Location = new System.Drawing.Point(623, 236);
             this.btnSacuvaj.Name = "btnSacuvaj";
-            this.btnSacuvaj.Size = new System.Drawing.Size(94, 39);
+            this.btnSacuvaj.Size = new System.Drawing.Size(94, 60);
             this.btnSacuvaj.TabIndex = 8;
             this.btnSacuvaj.Text = "Sačuvaj";
             this.btnSacuvaj.UseVisualStyleBackColor = true;
             this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
+            // 
+            // btnObrisiDodelu
+            // 
+            this.btnObrisiDodelu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnObrisiDodelu.Location = new System.Drawing.Point(623, 373);
+            this.btnObrisiDodelu.Name = "btnObrisiDodelu";
+            this.btnObrisiDodelu.Size = new System.Drawing.Size(94, 41);
+            this.btnObrisiDodelu.TabIndex = 10;
+            this.btnObrisiDodelu.Text = "Obriši dodelu";
+            this.btnObrisiDodelu.UseVisualStyleBackColor = true;
+            this.btnObrisiDodelu.Click += new System.EventHandler(this.btnObrisiDodelu_Click);
             // 
             // FrmUnesiDodelu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnObrisiDodelu);
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.cbTakmicari);
             this.Controls.Add(this.label2);
@@ -137,5 +150,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbTakmicari;
         private System.Windows.Forms.Button btnSacuvaj;
+        private System.Windows.Forms.Button btnObrisiDodelu;
     }
 }

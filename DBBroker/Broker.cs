@@ -418,5 +418,14 @@ namespace DBBroker
 
             cmd.ExecuteNonQuery();
         }
+
+        public void ObrisiSveDodele()
+        {
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
+
+            cmd.CommandText = $"DELETE FROM Dodela";
+
+            cmd.ExecuteNonQuery();
+        }
     }
 }

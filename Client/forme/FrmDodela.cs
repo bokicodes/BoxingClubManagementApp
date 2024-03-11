@@ -13,6 +13,11 @@ using Zajednicko.domen;
 
 namespace Client.forme
 {
+    public enum VrstaDodele
+    {
+        UNOS,
+        IZMENA
+    }
     public partial class FrmDodela : Form
     {
         public FrmDodela()
@@ -29,22 +34,14 @@ namespace Client.forme
 
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            FrmUnesiDodelu frmUnesiDodelu = new FrmUnesiDodelu(this);
+            FrmUnesiDodelu frmUnesiDodelu = new FrmUnesiDodelu(this, VrstaDodele.UNOS);
             frmUnesiDodelu.ShowDialog();
         }
 
-        private void btnObrisiDodelu_Click(object sender, EventArgs e)
+        private void btnDetalji_Click(object sender, EventArgs e)
         {
-            if (dgvDodela.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Niste odabrali red");
-                return;
-            }
-
-            Dodela d = dgvDodela.SelectedRows[0].DataBoundItem as Dodela;
-
-            Controller.Instance.ObrisiDodelu(d);
-            OsveziListuDodela();
+            FrmUnesiDodelu frmUnesiDodelu = new FrmUnesiDodelu(this, VrstaDodele.IZMENA);
+            frmUnesiDodelu.ShowDialog();
         }
     }
 }

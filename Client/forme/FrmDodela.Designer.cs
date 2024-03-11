@@ -32,7 +32,6 @@
             this.btnUnesi = new System.Windows.Forms.Button();
             this.btnDetalji = new System.Windows.Forms.Button();
             this.dgvDodela = new System.Windows.Forms.DataGridView();
-            this.btnObrisiDodelu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDodela)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,23 +49,26 @@
             // btnUnesi
             // 
             this.btnUnesi.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUnesi.Location = new System.Drawing.Point(580, 280);
+            this.btnUnesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUnesi.Location = new System.Drawing.Point(580, 211);
             this.btnUnesi.Name = "btnUnesi";
-            this.btnUnesi.Size = new System.Drawing.Size(143, 32);
+            this.btnUnesi.Size = new System.Drawing.Size(143, 46);
             this.btnUnesi.TabIndex = 14;
-            this.btnUnesi.Text = "Unesi novu dodelu";
+            this.btnUnesi.Text = "Dodeli takmičare trenerima";
             this.btnUnesi.UseVisualStyleBackColor = true;
             this.btnUnesi.Click += new System.EventHandler(this.btnUnesi_Click);
             // 
             // btnDetalji
             // 
             this.btnDetalji.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnDetalji.Location = new System.Drawing.Point(580, 190);
+            this.btnDetalji.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalji.Location = new System.Drawing.Point(580, 283);
             this.btnDetalji.Name = "btnDetalji";
-            this.btnDetalji.Size = new System.Drawing.Size(143, 30);
+            this.btnDetalji.Size = new System.Drawing.Size(143, 45);
             this.btnDetalji.TabIndex = 13;
-            this.btnDetalji.Text = "Izmeni dodelu";
+            this.btnDetalji.Text = "Izmeni dodele";
             this.btnDetalji.UseVisualStyleBackColor = true;
+            this.btnDetalji.Click += new System.EventHandler(this.btnDetalji_Click);
             // 
             // dgvDodela
             // 
@@ -80,23 +82,11 @@
             this.dgvDodela.Size = new System.Drawing.Size(430, 289);
             this.dgvDodela.TabIndex = 15;
             // 
-            // btnObrisiDodelu
-            // 
-            this.btnObrisiDodelu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnObrisiDodelu.Location = new System.Drawing.Point(580, 358);
-            this.btnObrisiDodelu.Name = "btnObrisiDodelu";
-            this.btnObrisiDodelu.Size = new System.Drawing.Size(143, 32);
-            this.btnObrisiDodelu.TabIndex = 16;
-            this.btnObrisiDodelu.Text = "Obriši dodelu";
-            this.btnObrisiDodelu.UseVisualStyleBackColor = true;
-            this.btnObrisiDodelu.Click += new System.EventHandler(this.btnObrisiDodelu_Click);
-            // 
             // FrmDodela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnObrisiDodelu);
             this.Controls.Add(this.dgvDodela);
             this.Controls.Add(this.btnUnesi);
             this.Controls.Add(this.btnDetalji);
@@ -115,6 +105,5 @@
         private System.Windows.Forms.Button btnUnesi;
         private System.Windows.Forms.Button btnDetalji;
         private System.Windows.Forms.DataGridView dgvDodela;
-        private System.Windows.Forms.Button btnObrisiDodelu;
     }
 }

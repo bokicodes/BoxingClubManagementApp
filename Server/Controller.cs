@@ -255,5 +255,27 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public void ObrisiSveDodele()
+        {
+            try
+            {
+                broker.OpenConnection();
+                broker.BeginTransaction();
+
+                broker.ObrisiSveDodele();
+
+                broker.Commit();
+            }
+            catch (Exception)
+            {
+                broker.Rollback();
+                throw;
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

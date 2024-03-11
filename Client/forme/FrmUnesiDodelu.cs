@@ -15,18 +15,32 @@ namespace Client.forme
     public partial class FrmUnesiDodelu : Form
     {
         private readonly FrmDodela frmDodela;
+        private readonly VrstaDodele operacija;
         BindingList<Dodela> listaDodela;
 
-        public FrmUnesiDodelu(FrmDodela frmDodela)
+        public FrmUnesiDodelu(FrmDodela frmDodela, VrstaDodele operacija)
         {
             InitializeComponent();
 
-            listaDodela = new BindingList<Dodela>();
-            dgvDodela.DataSource = listaDodela;
+            if(operacija == VrstaDodele.IZMENA)
+            {
+                listaDodela = new BindingList<Dodela>(Controller.Instance.UcitajListuDodela());
+                dgvDodela.DataSource = listaDodela;
+                btnObrisiDodelu.Visible = true;
+                btnSacuvaj.Text = "Sačuvaj izmene";
+            }
+            else if(operacija == VrstaDodele.UNOS)
+            {
+                listaDodela = new BindingList<Dodela>();
+                dgvDodela.DataSource = listaDodela;
+                btnObrisiDodelu.Visible = false;
+                btnSacuvaj.Text = "Sačuvaj";
+            }      
 
             cbTreneri.DataSource = Controller.Instance.UcitajListuTrenera();
             cbTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
             this.frmDodela = frmDodela;
+            this.operacija = operacija;
         }
 
         private void btnDodajUListu_Click(object sender, EventArgs e)
@@ -71,22 +85,73 @@ namespace Client.forme
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
         {
-            if (listaDodela.Count == 0)
+
+            if (operacija == VrstaDodele.IZMENA)
             {
-                MessageBox.Show("Morate prvo dodati u listu nekog trenera i takmičara");
+                try
+                {
+                    Controller.Instance.ObrisiSveDodele();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Došlo je do greške prilikom brisanja dodela");
+                    return;
+                }
+
+                if (listaDodela.Count == 0)
+                {
+                    frmDodela.OsveziListuDodela();
+                    MessageBox.Show("Uspešno ste izmenili dodele takmičara i trenera");
+                    return;
+                }
+
+
+                try
+                {
+                    Controller.Instance.SacuvajDodelu(listaDodela);
+                    frmDodela.OsveziListuDodela();
+                    MessageBox.Show("Uspešno ste izmenili dodele takmičara i trenera");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Došlo je do greske prilikom izmene dodela!");
+                }
+            }
+
+            if(operacija == VrstaDodele.UNOS)
+            {
+                if (listaDodela.Count == 0)
+                {
+                    MessageBox.Show("Morate prvo dodati u listu nekog trenera i takmičara");
+                    return;
+                }
+
+                try
+                {
+                    Controller.Instance.SacuvajDodelu(listaDodela);
+                    frmDodela.OsveziListuDodela();
+                    dgvDodela.Rows.Clear();
+
+                    MessageBox.Show("Uspešno ste dodelili takmičare trenerima");
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Došlo je do greške prilikom čuvanja dodela!");
+                }
+            }
+        }
+        private void btnObrisiDodelu_Click(object sender, EventArgs e)
+        {
+            if (dgvDodela.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Niste odabrali red");
                 return;
             }
 
-            try
-            {
-                Controller.Instance.SacuvajDodelu(listaDodela);
-                frmDodela.OsveziListuDodela();
-                MessageBox.Show("Uspesno ste dodelili takmicare trenerima");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Doslo je do greske prilikom cuvanja dodela!");
-            }
+            Dodela d = dgvDodela.SelectedRows[0].DataBoundItem as Dodela;
+
+            listaDodela.Remove(d);
+            dgvDodela.DataSource = listaDodela;
         }
     }
 }
