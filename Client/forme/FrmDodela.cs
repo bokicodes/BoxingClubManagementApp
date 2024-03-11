@@ -17,12 +17,17 @@ namespace Client.forme
         {
             InitializeComponent();
 
+            OsveziListuDodela();
+        }
+
+        public void OsveziListuDodela()
+        {
             dgvDodela.DataSource = Controller.Instance.UcitajListuDodela();
         }
 
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            FrmUnesiDodelu frmUnesiDodelu = new FrmUnesiDodelu();
+            FrmUnesiDodelu frmUnesiDodelu = new FrmUnesiDodelu(this);
             frmUnesiDodelu.ShowDialog();
         }
     }

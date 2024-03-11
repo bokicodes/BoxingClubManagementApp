@@ -14,8 +14,10 @@ namespace Client.forme
 {
     public partial class FrmUnesiDodelu : Form
     {
+        private readonly FrmDodela frmDodela;
         BindingList<Dodela> listaDodela;
-        public FrmUnesiDodelu()
+
+        public FrmUnesiDodelu(FrmDodela frmDodela)
         {
             InitializeComponent();
 
@@ -24,7 +26,7 @@ namespace Client.forme
 
             cbTreneri.DataSource = Controller.Instance.UcitajListuTrenera();
             cbTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
-
+            this.frmDodela = frmDodela;
         }
 
         private void btnDodajUListu_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace Client.forme
             try
             {
                 Controller.Instance.SacuvajDodelu(listaDodela);
+                frmDodela.OsveziListuDodela();
                 MessageBox.Show("Uspesno ste dodelili takmicare trenerima");
             }
             catch (Exception)
