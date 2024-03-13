@@ -26,7 +26,8 @@ namespace Server
 
         public void Listen()
         {
-
+            Socket klijentskiSocket = socket.Accept();
+            //obrada klijentskih zahteva
         }
 
         public void Stop()

@@ -27,6 +27,8 @@ namespace Server
             server = new Server();
             server.Start();
 
+            server.Listen();
+
             btnStart.Enabled = false;
             btnStop.Enabled = true;
         }
