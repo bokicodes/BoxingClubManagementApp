@@ -277,5 +277,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public List<Korisnik> VratiListuKorisnika()
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.VratiListuKorisnika();
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

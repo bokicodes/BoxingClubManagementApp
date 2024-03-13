@@ -427,5 +427,29 @@ namespace DBBroker
 
             cmd.ExecuteNonQuery();
         }
+
+        public List<Korisnik> VratiListuKorisnika()
+        {
+            SqlCommand cmd = new SqlCommand("", connection);
+
+            cmd.CommandText = $"select * from korisnik";
+
+            List<Korisnik> listaKorisnika = new List<Korisnik>();
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    Korisnik k = new Korisnik
+                    {
+                        KorisnickoIme = (string)reader["KorisnickoIme"],
+                        Lozinka = (string)reader["Lozinka"]
+                    };
+
+                    listaKorisnika.Add(k);
+                }
+            }
+            return listaKorisnika;
+        }
     }
 }

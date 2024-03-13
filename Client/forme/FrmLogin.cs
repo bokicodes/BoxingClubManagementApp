@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Server;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zajednicko.domen;
 
 namespace Client
 {
@@ -19,10 +22,34 @@ namespace Client
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            FrmMain frmMain = new FrmMain();
-            this.Visible = false;
-            frmMain.ShowDialog();
-            this.Visible = true;
+            string username = tbUsername.Text;
+            string pw = tbPassword.Text;
+
+            List<Korisnik> listaKorisnika = Controller.Instance.VratiListuKorisnika();
+
+            bool postoji = false;
+
+            foreach(Korisnik k in listaKorisnika)
+            {
+                if(k.KorisnickoIme == username && k.Lozinka == pw)
+                {
+                    postoji = true;
+                    break;
+                }
+            }
+
+            if (!postoji)
+            {
+                MessageBox.Show("Korisnik sa tim parametrima ne postoji");
+                return;
+            }
+            else
+            {
+                FrmMain frmMain = new FrmMain();
+                this.Visible = false;
+                frmMain.ShowDialog();
+                this.Visible = true;
+            }      
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
