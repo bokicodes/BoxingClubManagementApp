@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Client.izuzeci;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -56,7 +57,7 @@ namespace Zajednicko.komunikacija
             }
             else
             {
-                throw new Exception(odgovor.Poruka);
+                throw new SystemOperationException(odgovor.Poruka);
             }
         }
 

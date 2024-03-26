@@ -1,4 +1,5 @@
-﻿using Server;
+﻿using Client.izuzeci;
+using Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,11 +52,14 @@ namespace Client
                     MessageBox.Show("Korisnik sa tim parametrima ne postoji");
                     Komunikacija.Instance.Disconnect();
                 }
-            }catch(Exception ex)
+            }catch(SystemOperationException ex)
             {
                 MessageBox.Show(ex.Message);
                 Komunikacija.Instance.Disconnect();
-            }   
+            }catch(SocketException)
+            {
+                MessageBox.Show("Doslo je do greske pri radu sa serverom");
+            }
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)

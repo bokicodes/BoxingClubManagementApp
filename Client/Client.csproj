@@ -94,6 +94,7 @@
     <Compile Include="forme\FrmUnesiTrenera.Designer.cs">
       <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
     </Compile>
+    <Compile Include="izuzeci\SystemOperationException.cs" />
     <Compile Include="Komunikacija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,8 +154,6 @@
       <Name>Zajednicko</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="izuzeci\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
