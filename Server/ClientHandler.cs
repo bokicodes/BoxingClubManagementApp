@@ -26,39 +26,17 @@ namespace Server
             formatter = new BinaryFormatter();
         }
 
+        private bool kraj = false;
+
         public void HandleRequests()
         {
             try
             {
-                bool kraj = false;
                 while (!kraj)
                 {
                     Zahtev zahtev = (Zahtev)formatter.Deserialize(stream);
-                    Odgovor odgovor = new Odgovor();
-
-                    switch (zahtev.Operacija)
-                    {
-                        case Operacija.Login:
-                            odgovor.OdgovorObject = Controller.Instance.Login((Korisnik)zahtev.ZahtevObject);
-                            if (odgovor.OdgovorObject == null)
-                            {
-                                odgovor.Uspesno = false;
-                                odgovor.Poruka = "Korisnik ne postoji";
-                            }
-                            else
-                            {
-                                odgovor.Uspesno = true;
-                            }
-                            formatter.Serialize(stream, odgovor);
-                            break;
-
-                        case Operacija.Kraj:
-                            kraj = true;
-                            break;
-
-                        default:
-                            break;
-                    }
+                    Odgovor odgovor = KreirajOdgovor(zahtev);
+                    formatter.Serialize(stream, odgovor);
                 }
             }
             catch (IOException ex)
@@ -71,6 +49,40 @@ namespace Server
                 socket.Close();
             }
             
+        }
+
+        public Odgovor KreirajOdgovor(Zahtev zahtev)
+        {
+            Odgovor odgovor = new Odgovor();
+            try
+            {
+                switch (zahtev.Operacija)
+                {
+                    case Operacija.Login:
+                        odgovor.OdgovorObject = Controller.Instance.Login((Korisnik)zahtev.ZahtevObject);
+                        if (odgovor.OdgovorObject == null)
+                        {
+                            odgovor.Uspesno = false;
+                            odgovor.Poruka = "Korisnik ne postoji";
+                        }
+                        break;
+
+                    case Operacija.Kraj:
+                        kraj = true;
+                        break;
+
+                    default:
+                        break;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(">>>" + ex.Message);
+                odgovor.Uspesno = false;
+                odgovor.Poruka = ex.Message;
+            }
+            return odgovor;
         }
     }
 }

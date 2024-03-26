@@ -10,7 +10,7 @@ namespace Zajednicko
     public class Odgovor
     {
         public string Poruka { get; set; }
-        public bool Uspesno { get; set; }
+        public bool Uspesno { get; set; } = true;
         public object OdgovorObject { get; set; }
     }
 }
