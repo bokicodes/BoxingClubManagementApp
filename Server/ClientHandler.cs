@@ -10,20 +10,20 @@ using System.Text;
 using System.Threading.Tasks;
 using Zajednicko;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Server
 {
     public class ClientHandler
     {
         private readonly Socket socket;
-        private NetworkStream stream;
-        private BinaryFormatter formatter;
+
+        private Helper helper;
 
         public ClientHandler(Socket socket)
         {
             this.socket = socket;
-            stream = new NetworkStream(socket);
-            formatter = new BinaryFormatter();
+            helper = new Helper(socket);
         }
 
         private bool kraj = false;
@@ -34,9 +34,9 @@ namespace Server
             {
                 while (!kraj)
                 {
-                    Zahtev zahtev = (Zahtev)formatter.Deserialize(stream);
+                    Zahtev zahtev = helper.Primi<Zahtev>();
                     Odgovor odgovor = KreirajOdgovor(zahtev);
-                    formatter.Serialize(stream, odgovor);
+                    helper.Posalji(odgovor);
                 }
             }
             catch (IOException ex)

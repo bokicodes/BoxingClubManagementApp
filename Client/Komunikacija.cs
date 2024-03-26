@@ -15,8 +15,7 @@ namespace Zajednicko.komunikacija
     {
         private Socket socket;
 
-        private NetworkStream stream;
-        private BinaryFormatter formatter;
+        private Helper helper;
 
         private static Komunikacija instance;
         public static Komunikacija Instance
@@ -37,14 +36,13 @@ namespace Zajednicko.komunikacija
         {
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Connect("127.0.0.1", 9999);
-            stream = new NetworkStream(socket);
-            formatter = new BinaryFormatter();
+            helper = new Helper(socket);
         }
 
 
         public object VratiRezultat()
         {
-            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+            Odgovor odgovor = helper.Primi<Odgovor>();
 
             if (odgovor.Uspesno)
             {
@@ -63,7 +61,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.Login,
                 ZahtevObject = k
             };
-            formatter.Serialize(stream, zahtev);
+            helper.Posalji(zahtev);
 
             return (Korisnik)VratiRezultat();
         }
@@ -76,7 +74,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.Kraj,
             };
-            formatter.Serialize(stream, zahtev);
+            helper.Posalji(zahtev);
 
             socket.Shutdown(SocketShutdown.Both);
             socket.Close();

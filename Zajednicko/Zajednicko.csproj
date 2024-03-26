@@ -48,6 +48,7 @@
     <Compile Include="domen\StarosnaKategorija.cs" />
     <Compile Include="domen\Takmicar.cs" />
     <Compile Include="domen\Trener.cs" />
+    <Compile Include="komunikacija\Helper.cs" />
     <Compile Include="komunikacija\Odgovor.cs" />
     <Compile Include="komunikacija\Operacija.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
