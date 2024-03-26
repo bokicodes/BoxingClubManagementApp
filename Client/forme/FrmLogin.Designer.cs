@@ -41,7 +41,6 @@
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(250, 20);
             this.tbUsername.TabIndex = 0;
-            this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
             // 
             // label1
             // 
@@ -52,7 +51,6 @@
             this.label1.Size = new System.Drawing.Size(111, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Korisničko ime:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnLogin
             // 
@@ -73,7 +71,6 @@
             this.label2.Size = new System.Drawing.Size(42, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "Šifra:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // tbPassword
             // 
@@ -81,7 +78,6 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(250, 20);
             this.tbPassword.TabIndex = 3;
-            this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             // 
             // FrmLogin
             // 

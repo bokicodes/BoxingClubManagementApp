@@ -62,29 +62,9 @@ namespace Client
             }
         }
 
-        private void tbPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tbUsername_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Komunikacija.Instance.Disconnect();
+            //Komunikacija.Instance.Disconnect();
         }
     }
 }
