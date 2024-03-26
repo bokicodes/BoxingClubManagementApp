@@ -451,5 +451,17 @@ namespace DBBroker
             }
             return listaKorisnika;
         }
+
+        public Korisnik Login(Korisnik k)
+        {
+            List<Korisnik> listaKorisnika = VratiListuKorisnika();
+
+            foreach(Korisnik korisnik in listaKorisnika)
+            {
+                if (k.KorisnickoIme == korisnik.KorisnickoIme && k.Lozinka == korisnik.Lozinka)
+                    return k;
+            }
+            return null;
+        }
     }
 }

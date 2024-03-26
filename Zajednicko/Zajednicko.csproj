@@ -48,8 +48,10 @@
     <Compile Include="domen\StarosnaKategorija.cs" />
     <Compile Include="domen\Takmicar.cs" />
     <Compile Include="domen\Trener.cs" />
-    <Compile Include="komunikacija\Komunikacija.cs" />
+    <Compile Include="komunikacija\Odgovor.cs" />
+    <Compile Include="komunikacija\Operacija.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="komunikacija\Zahtev.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

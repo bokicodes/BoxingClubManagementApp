@@ -290,5 +290,18 @@ namespace Server
                 broker.CloseConnection();
             }
         }
+
+        public Korisnik Login(Korisnik k)
+        {
+            try
+            {
+                broker.OpenConnection();
+                return broker.Login(k);
+            }
+            finally
+            {
+                broker.CloseConnection();
+            }
+        }
     }
 }

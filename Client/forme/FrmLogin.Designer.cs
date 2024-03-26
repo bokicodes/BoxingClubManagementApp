@@ -95,6 +95,7 @@
             this.Controls.Add(this.tbUsername);
             this.Name = "FrmLogin";
             this.Text = "Login";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

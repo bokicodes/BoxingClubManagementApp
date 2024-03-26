@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Client
 {
@@ -25,31 +26,35 @@ namespace Client
             string username = tbUsername.Text;
             string pw = tbPassword.Text;
 
-            List<Korisnik> listaKorisnika = Controller.Instance.VratiListuKorisnika();
-
-            bool postoji = false;
-
-            foreach(Korisnik k in listaKorisnika)
+            try
             {
-                if(k.KorisnickoIme == username && k.Lozinka == pw)
+                Korisnik k = new Korisnik
                 {
-                    postoji = true;
-                    break;
-                }
-            }
+                    KorisnickoIme = username,
+                    Lozinka = pw
+                };
 
-            if (!postoji)
+                Komunikacija.Instance.Connect();
+                Komunikacija.Instance.Login(k);
+
+
+                if (k != null)
+                {                 
+                    FrmMain frmMain = new FrmMain();
+                    this.Visible = false;
+                    frmMain.ShowDialog();
+                    this.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Korisnik sa tim parametrima ne postoji");
+                    Komunikacija.Instance.Disconnect();
+                }
+            }catch(Exception ex)
             {
-                MessageBox.Show("Korisnik sa tim parametrima ne postoji");
-                return;
-            }
-            else
-            {
-                FrmMain frmMain = new FrmMain();
-                this.Visible = false;
-                frmMain.ShowDialog();
-                this.Visible = true;
-            }      
+                MessageBox.Show(ex.Message);
+                Komunikacija.Instance.Disconnect();
+            }   
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
@@ -70,6 +75,11 @@ namespace Client
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Komunikacija.Instance.Disconnect();
         }
     }
 }

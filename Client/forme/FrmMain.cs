@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Zajednicko.komunikacija;
 
 namespace Client
 {
@@ -39,6 +40,11 @@ namespace Client
         {
             FrmDodela frmDodela = new FrmDodela();
             frmDodela.ShowDialog();
+        }
+
+        private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Komunikacija.Instance.Disconnect();
         }
     }
 }

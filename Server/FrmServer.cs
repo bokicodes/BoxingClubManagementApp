@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,13 +25,13 @@ namespace Server
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            server = new Server();
-            server.Start();
-
-            server.Listen();
-
             btnStart.Enabled = false;
             btnStop.Enabled = true;
+            
+            server = new Server();      
+            server.Start();
+            server.Listen();
+                  
         }
 
         private void btnStop_Click(object sender, EventArgs e)

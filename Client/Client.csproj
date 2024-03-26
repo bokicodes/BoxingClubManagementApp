@@ -94,6 +94,7 @@
     <Compile Include="forme\FrmUnesiTrenera.Designer.cs">
       <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
     </Compile>
+    <Compile Include="Komunikacija.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="forme\FrmDodela.resx">
@@ -151,6 +152,9 @@
       <Project>{F721FA08-FFBF-4F70-9176-9E5CC9A71218}</Project>
       <Name>Zajednicko</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="izuzeci\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
