@@ -40,6 +40,22 @@ namespace Zajednicko.komunikacija
             stream = new NetworkStream(socket);
             formatter = new BinaryFormatter();
         }
+
+
+        public object VratiRezultat()
+        {
+            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
+
+            if (odgovor.Uspesno)
+            {
+                return odgovor.OdgovorObject;
+            }
+            else
+            {
+                throw new SystemOperationException(odgovor.Poruka);
+            }
+        } 
+
         public Korisnik Login(Korisnik k)
         {
             Zahtev zahtev = new Zahtev
@@ -49,16 +65,7 @@ namespace Zajednicko.komunikacija
             };
             formatter.Serialize(stream, zahtev);
 
-            Odgovor odgovor = (Odgovor)formatter.Deserialize(stream);
-
-            if (odgovor.Uspesno)
-            {
-                return (Korisnik)odgovor.OdgovorObject;
-            }
-            else
-            {
-                throw new SystemOperationException(odgovor.Poruka);
-            }
+            return (Korisnik)VratiRezultat();
         }
 
         public void Disconnect()
