@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zajednicko.domen
 {
+    [Serializable]
     public class Takmicar
     {
         public int TakmicarId { get; set; }

@@ -80,5 +80,16 @@ namespace Zajednicko.komunikacija
             socket.Close();
             socket = null;
         }
+
+        public List<Takmicar> UcitajListuTakmicara()
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.UcitajListuTakmicara
+            };
+            helper.Posalji(zahtev);
+
+            return (List<Takmicar>)VratiRezultat();
+        }
     }
 }

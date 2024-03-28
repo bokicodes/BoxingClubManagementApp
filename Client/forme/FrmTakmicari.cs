@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Client.forme
 {
@@ -24,7 +25,7 @@ namespace Client.forme
         }
         public void OsveziDgvTakmicara()
         {      
-            dgvTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
+            dgvTakmicari.DataSource = Komunikacija.Instance.UcitajListuTakmicara();
 
             dgvTakmicari.Columns[0].Visible = false;
             dgvTakmicari.Columns[3].Visible = false;

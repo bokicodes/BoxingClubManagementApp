@@ -67,6 +67,10 @@ namespace Server
                         }
                         break;
 
+                    case Operacija.UcitajListuTakmicara:
+                        odgovor.OdgovorObject = Controller.Instance.UcitajListuTakmicara();
+                        break;
+
                     case Operacija.Kraj:
                         kraj = true;
                         break;

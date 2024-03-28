@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zajednicko.domen
 {
+    [Serializable]
     public class StarosnaKategorija
     {
         public int StKategorijaId { get; set; }
