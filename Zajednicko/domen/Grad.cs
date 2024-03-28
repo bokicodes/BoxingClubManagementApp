@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Zajednicko.domen
 {
+    [Serializable]
     public class Grad
     {
         public int GradId { get; set; }
