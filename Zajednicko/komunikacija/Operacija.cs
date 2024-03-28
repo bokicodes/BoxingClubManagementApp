@@ -10,5 +10,18 @@ namespace Zajednicko
     {
         Login,
         Kraj,
+        UcitajListuKategorija,
+        UcitajListuStKategorija,
+        ZapamtiTakmicara,
+        NadjiTakmicare,
+        UcitajTakmicara,
+        UcitajListuGradova,
+        ZapamtiTrenera,
+        NadjiTrenere,
+        UcitajTrenera,
+        UcitajListuTrenera,
+        UcitajListuTakmicara,
+        DodeliTakmicareTreneru,
+        UcitajTakmicareTrenera
     }
 }
