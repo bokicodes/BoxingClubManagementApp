@@ -94,12 +94,12 @@ namespace Server
             }
         }
 
-        public List<Takmicar> PretraziTakmicare(string text)
+        public List<Takmicar> NadjiTakmicare(string text)
         {
             try
             {
                 broker.OpenConnection();
-                return broker.PretraziTakmicare(text);
+                return broker.NadjiTakmicare(text);
             }
             finally
             {

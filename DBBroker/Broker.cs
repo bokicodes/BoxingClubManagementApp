@@ -167,7 +167,7 @@ namespace DBBroker
             cmd.ExecuteNonQuery();
         }
 
-        public List<Takmicar> PretraziTakmicare(string text)
+        public List<Takmicar> NadjiTakmicare(string text)
         {
             SqlCommand cmd = new SqlCommand("", connection);
 

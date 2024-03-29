@@ -91,5 +91,17 @@ namespace Zajednicko.komunikacija
 
             return (List<Takmicar>)VratiRezultat();
         }
+
+        public List<Takmicar> NadjiTakmicare(string text)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.NadjiTakmicare,
+                ZahtevObject = text
+            };
+            helper.Posalji(zahtev);
+
+            return (List<Takmicar>)VratiRezultat();
+        }
     }
 }

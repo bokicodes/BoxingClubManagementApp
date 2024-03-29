@@ -57,7 +57,7 @@ namespace Client.forme
         private void tbPretraziTakmicare_TextChanged(object sender, EventArgs e)
         {
             string text = tbPretraziTakmicare.Text;
-            dgvTakmicari.DataSource =  Controller.Instance.PretraziTakmicare(text);
+            dgvTakmicari.DataSource =  Komunikacija.Instance.NadjiTakmicare(text);
             
             dgvTakmicari.Columns[0].Visible = false;
             dgvTakmicari.Columns[3].Visible = false;

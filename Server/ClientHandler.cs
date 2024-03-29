@@ -71,6 +71,10 @@ namespace Server
                         odgovor.OdgovorObject = Controller.Instance.UcitajListuTakmicara();
                         break;
 
+                    case Operacija.NadjiTakmicare:
+                        odgovor.OdgovorObject = Controller.Instance.NadjiTakmicare(zahtev.ZahtevObject.ToString());
+                        break;
+
                     case Operacija.Kraj:
                         kraj = true;
                         break;
