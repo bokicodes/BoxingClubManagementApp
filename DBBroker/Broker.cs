@@ -45,7 +45,7 @@ namespace DBBroker
         }
         
 
-        public void DodajTakmicara(Takmicar t)
+        public Takmicar ZapamtiTakmicara(Takmicar t)
         {
             SqlCommand cmd = new SqlCommand("", connection);
 
@@ -60,6 +60,8 @@ namespace DBBroker
             cmd.Parameters.AddWithValue("@StKategorijaId", t.StKategorija.StKategorijaId);
 
             cmd.ExecuteNonQuery();
+
+            return t;
         }
 
         public List<Kategorija> UcitajListuKategorija()

@@ -29,12 +29,12 @@ namespace Server
             broker = new Broker();
         }
 
-        public void DodajTakmicara(Takmicar t)
+        public Takmicar ZapamtiTakmicara(Takmicar t)
         {
             try
             {
                 broker.OpenConnection();
-                broker.DodajTakmicara(t);
+                return broker.ZapamtiTakmicara(t);
             }
             finally
             {

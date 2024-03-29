@@ -103,5 +103,39 @@ namespace Zajednicko.komunikacija
 
             return (List<Takmicar>)VratiRezultat();
         }
+
+        public List<Kategorija> UcitajListuKategorija()
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.UcitajListuKategorija
+            };
+            helper.Posalji(zahtev);
+
+            return (List<Kategorija>)VratiRezultat();
+        }
+
+        public object UcitajListuStKategorija()
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.UcitajListuStKategorija
+            };
+            helper.Posalji(zahtev);
+
+            return (List<StarosnaKategorija>)VratiRezultat();
+        }
+
+        public Takmicar ZapamtiTakmicara(Takmicar t)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.ZapamtiTakmicara,
+                ZahtevObject = t
+            };
+            helper.Posalji(zahtev);
+
+            return (Takmicar)VratiRezultat();
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Client.forme
 {
@@ -23,8 +24,8 @@ namespace Client.forme
             btnSacuvaj.Visible = true;
             btnIzmeni.Visible = false;
 
-            cbKategorija.DataSource = Controller.Instance.UcitajListuKategorija();
-            cbStarosnaKategorija.DataSource = Controller.Instance.UcitajListuStKategorija();
+            cbKategorija.DataSource = Komunikacija.Instance.UcitajListuKategorija();
+            cbStarosnaKategorija.DataSource = Komunikacija.Instance.UcitajListuStKategorija();
             
             this.frmTakmicari = frmTakmicari;
             
@@ -75,7 +76,7 @@ namespace Client.forme
                 DatRodj = datRodj
             };
 
-            Controller.Instance.DodajTakmicara(t);
+            Takmicar sacuvaniTakmicar = Komunikacija.Instance.ZapamtiTakmicara(t);
             MessageBox.Show("Uspesno ste dodali takmicara!");
             frmTakmicari.OsveziDgvTakmicara();           
         }
