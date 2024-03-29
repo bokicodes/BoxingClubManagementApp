@@ -1,6 +1,7 @@
 ﻿using Client.izuzeci;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Sockets;
@@ -148,6 +149,20 @@ namespace Zajednicko.komunikacija
             helper.Posalji(zahtev);
 
             return (Takmicar)VratiRezultat();
+        }
+
+        public bool ObrisiTakmicara(Takmicar t)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.ObrisiTakmicara,
+                ZahtevObject = t
+            };
+            helper.Posalji(zahtev);
+
+            Odgovor odgovor = helper.Primi<Odgovor>();
+
+            return odgovor.Uspesno;
         }
     }
 }

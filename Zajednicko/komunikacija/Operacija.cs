@@ -23,6 +23,7 @@ namespace Zajednicko
         UcitajListuTakmicara,
         DodeliTakmicareTreneru,
         UcitajTakmicareTrenera,
-        IzmeniTakmicara
+        IzmeniTakmicara,
+        ObrisiTakmicara
     }
 }

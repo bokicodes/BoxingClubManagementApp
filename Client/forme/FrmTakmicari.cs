@@ -75,15 +75,13 @@ namespace Client.forme
             }
 
             Takmicar t = dgvTakmicari.SelectedRows[0].DataBoundItem as Takmicar;
-            try
-            {
-                Controller.Instance.ObrisiTakmicara(t);
+
+            bool obrisano = Komunikacija.Instance.ObrisiTakmicara(t);
+            if(obrisano)
                 OsveziDgvTakmicara();
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Morate prvo obrisati u kartici 'Dodela' sve dodele sa ovim takmičarom");
-            }
+            else
+                MessageBox.Show("Morate prvo u kartici 'Dodela' obrisati sve dodele sa ovim takmicarom");
+
         }
     }
 }

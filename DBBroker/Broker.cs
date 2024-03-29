@@ -400,7 +400,7 @@ namespace DBBroker
             cmd.ExecuteNonQuery();
         }
 
-        public void ObrisiTakmicara(Takmicar t)
+        public Takmicar ObrisiTakmicara(Takmicar t)
         {
             SqlCommand cmd = new SqlCommand("", connection);
 
@@ -409,6 +409,8 @@ namespace DBBroker
             cmd.Parameters.AddWithValue("@takmicarId", t.TakmicarId);
 
             cmd.ExecuteNonQuery();
+
+            return t;
         }
 
         public void ObrisiDodelu(Dodela d)

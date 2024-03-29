@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Zajednicko;
 using Zajednicko.domen;
 using Zajednicko.komunikacija;
@@ -91,6 +93,10 @@ namespace Server
                         odgovor.OdgovorObject = Controller.Instance.IzmeniTakmicara((Takmicar)zahtev.ZahtevObject);
                         break;
 
+                    case Operacija.ObrisiTakmicara:
+                        odgovor.OdgovorObject = Controller.Instance.ObrisiTakmicara((Takmicar)zahtev.ZahtevObject);
+                        break;
+
                     case Operacija.Kraj:
                         kraj = true;
                         break;
@@ -99,6 +105,11 @@ namespace Server
                         break;
 
                 }
+            }
+            catch (SqlException)
+            {
+                odgovor.Uspesno = false;
+                odgovor.Poruka = "SqlException";
             }
             catch (Exception ex)
             {

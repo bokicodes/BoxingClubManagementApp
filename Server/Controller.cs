@@ -226,12 +226,12 @@ namespace Server
             }
         }
 
-        public void ObrisiTakmicara(Takmicar t)
+        public Takmicar ObrisiTakmicara(Takmicar t)
         {
             try
             {
                 broker.OpenConnection();
-                broker.ObrisiTakmicara(t);
+                return broker.ObrisiTakmicara(t);
             }
             catch (SqlException)
             {
