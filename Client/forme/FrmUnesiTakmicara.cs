@@ -37,8 +37,8 @@ namespace Client.forme
 
             btnSacuvaj.Visible = false;
             btnIzmeni.Visible = true;
-            cbKategorija.DataSource = Controller.Instance.UcitajListuKategorija();
-            cbStarosnaKategorija.DataSource = Controller.Instance.UcitajListuStKategorija();
+            cbKategorija.DataSource = Komunikacija.Instance.UcitajListuKategorija();
+            cbStarosnaKategorija.DataSource = Komunikacija.Instance.UcitajListuStKategorija();
             this.frmTakmicari = frmTakmicari;
             this.t = t;
 
@@ -147,7 +147,7 @@ namespace Client.forme
                 StKategorija = cbStarosnaKategorija.SelectedItem as StarosnaKategorija
             };
 
-            Controller.Instance.IzmeniTakmicara(noviT);
+            Takmicar noviTakmicar = Komunikacija.Instance.IzmeniTakmicara(noviT);
             MessageBox.Show("Uspesna izmena");
             frmTakmicari.OsveziDgvTakmicara();
             this.Close();

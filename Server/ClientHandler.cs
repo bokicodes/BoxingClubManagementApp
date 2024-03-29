@@ -87,6 +87,10 @@ namespace Server
                         odgovor.OdgovorObject = Controller.Instance.ZapamtiTakmicara((Takmicar)zahtev.ZahtevObject);
                         break;
 
+                    case Operacija.IzmeniTakmicara:
+                        odgovor.OdgovorObject = Controller.Instance.IzmeniTakmicara((Takmicar)zahtev.ZahtevObject);
+                        break;
+
                     case Operacija.Kraj:
                         kraj = true;
                         break;

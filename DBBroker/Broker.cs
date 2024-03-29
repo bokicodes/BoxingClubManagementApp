@@ -150,7 +150,7 @@ namespace DBBroker
             return listaTakm;
         }
 
-        public void IzmeniTakmicara(Takmicar t)
+        public Takmicar IzmeniTakmicara(Takmicar t)
         {
             SqlCommand cmd = new SqlCommand("", connection);
 
@@ -167,6 +167,8 @@ namespace DBBroker
             cmd.Parameters.AddWithValue("@TId", t.TakmicarId);
 
             cmd.ExecuteNonQuery();
+
+            return t;
         }
 
         public List<Takmicar> NadjiTakmicare(string text)

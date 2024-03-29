@@ -81,12 +81,12 @@ namespace Server
             }
         }
 
-        public void IzmeniTakmicara(Takmicar t)
+        public Takmicar IzmeniTakmicara(Takmicar t)
         {
             try
             {
                 broker.OpenConnection();
-                broker.IzmeniTakmicara(t);
+                return broker.IzmeniTakmicara(t);
             }
             finally
             {

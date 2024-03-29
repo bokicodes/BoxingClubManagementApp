@@ -137,5 +137,17 @@ namespace Zajednicko.komunikacija
 
             return (Takmicar)VratiRezultat();
         }
+
+        public Takmicar IzmeniTakmicara(Takmicar noviT)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.IzmeniTakmicara,
+                ZahtevObject = noviT
+            };
+            helper.Posalji(zahtev);
+
+            return (Takmicar)VratiRezultat();
+        }
     }
 }
