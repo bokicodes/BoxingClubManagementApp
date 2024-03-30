@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Client.forme
 {
@@ -24,7 +25,7 @@ namespace Client.forme
 
             if(operacija == VrstaDodele.IZMENA)
             {
-                listaDodela = new BindingList<Dodela>(Controller.Instance.UcitajListuDodela());
+                listaDodela = new BindingList<Dodela>(Komunikacija.Instance.UcitajTakmicareTrenera());
                 dgvDodela.DataSource = listaDodela;
                 btnObrisiDodelu.Visible = true;
                 btnSacuvaj.Text = "Sačuvaj izmene";
@@ -37,15 +38,15 @@ namespace Client.forme
                 btnSacuvaj.Text = "Sačuvaj";
             }      
 
-            cbTreneri.DataSource = Controller.Instance.UcitajListuTrenera();
-            cbTakmicari.DataSource = Controller.Instance.UcitajListuTakmicara();
+            cbTreneri.DataSource = Komunikacija.Instance.UcitajListuTrenera();
+            cbTakmicari.DataSource = Komunikacija.Instance.UcitajListuTakmicara();
             this.frmDodela = frmDodela;
             this.operacija = operacija;
         }
 
         private void btnDodajUListu_Click(object sender, EventArgs e)
         {
-            List<Dodela> sacuvanaListaDodela = Controller.Instance.UcitajListuDodela();
+            List<Dodela> sacuvanaListaDodela = Komunikacija.Instance.UcitajTakmicareTrenera();
 
             Trener trener = cbTreneri.SelectedItem as Trener;
             Takmicar takmicar = cbTakmicari.SelectedItem as Takmicar;
@@ -90,7 +91,7 @@ namespace Client.forme
             {
                 try
                 {
-                    Controller.Instance.ObrisiSveDodele();
+                    Komunikacija.Instance.ObrisiSveDodele();
                 }
                 catch (Exception)
                 {
@@ -108,7 +109,7 @@ namespace Client.forme
 
                 try
                 {
-                    Controller.Instance.SacuvajDodelu(listaDodela);
+                    Komunikacija.Instance.DodeliTakmicareTreneru(listaDodela);
                     frmDodela.OsveziListuDodela();
                     MessageBox.Show("Uspešno ste izmenili dodele takmičara i trenera");
                 }
@@ -128,7 +129,7 @@ namespace Client.forme
 
                 try
                 {
-                    Controller.Instance.SacuvajDodelu(listaDodela);
+                    Komunikacija.Instance.DodeliTakmicareTreneru(listaDodela);
                     frmDodela.OsveziListuDodela();
                     dgvDodela.Rows.Clear();
 

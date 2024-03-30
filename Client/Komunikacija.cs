@@ -1,6 +1,7 @@
 ﻿using Client.izuzeci;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Linq;
@@ -235,6 +236,40 @@ namespace Zajednicko.komunikacija
             helper.Posalji(zahtev);
 
             return (Trener)VratiRezultat();
+        }
+
+        public List<Dodela> UcitajTakmicareTrenera()
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.UcitajTakmicareTrenera
+            };
+            helper.Posalji(zahtev);
+
+            return (List<Dodela>)VratiRezultat();
+        }
+
+        public void ObrisiSveDodele()
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.ObrisiSveDodele
+            };
+            helper.Posalji(zahtev);
+
+            VratiRezultat();
+        }
+
+        internal void DodeliTakmicareTreneru(BindingList<Dodela> listaDodela)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.DodeliTakmicareTreneru,
+                ZahtevObject = listaDodela,
+            };
+            helper.Posalji(zahtev);
+
+            VratiRezultat();
         }
     }
 }

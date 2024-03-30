@@ -172,19 +172,19 @@ namespace Server
             }
         }
 
-        public List<Dodela> UcitajListuDodela()
+        public List<Dodela> UcitajTakmicareTrenera()
         {
             try
             {
                 broker.OpenConnection();
-                return broker.UictajListuDodela();
+                return broker.UcitajTakmicareTrenera();
             }
             finally
             {
                 broker.CloseConnection();
             }
         }
-        public void SacuvajDodelu(BindingList<Dodela> listaDodela)
+        public void DodeliTakmicareTreneru(BindingList<Dodela> listaDodela)
         {
             try
             {

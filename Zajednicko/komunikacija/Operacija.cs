@@ -26,6 +26,7 @@ namespace Zajednicko
         IzmeniTakmicara,
         ObrisiTakmicara,
         ObrisiTrenera,
-        IzmeniTrenera
+        IzmeniTrenera,
+        ObrisiSveDodele
     }
 }

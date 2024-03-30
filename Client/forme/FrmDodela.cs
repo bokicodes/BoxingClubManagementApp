@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Client.forme
 {
@@ -29,7 +30,7 @@ namespace Client.forme
 
         public void OsveziListuDodela()
         {
-            dgvDodela.DataSource = Controller.Instance.UcitajListuDodela();
+            dgvDodela.DataSource = Komunikacija.Instance.UcitajTakmicareTrenera();
         }
 
         private void btnUnesi_Click(object sender, EventArgs e)

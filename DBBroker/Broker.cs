@@ -325,7 +325,7 @@ namespace DBBroker
             return listaTrenera;
         }
 
-        public List<Dodela> UictajListuDodela()
+        public List<Dodela> UcitajTakmicareTrenera()
         {
             SqlCommand cmd = new SqlCommand("", connection);
 

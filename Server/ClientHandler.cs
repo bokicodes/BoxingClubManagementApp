@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
@@ -119,6 +120,18 @@ namespace Server
 
                     case Operacija.IzmeniTrenera:
                         odgovor.OdgovorObject = Controller.Instance.IzmeniTrenera((Trener)zahtev.ZahtevObject);
+                        break;
+
+                    case Operacija.UcitajTakmicareTrenera:
+                        odgovor.OdgovorObject = Controller.Instance.UcitajTakmicareTrenera();
+                        break;
+
+                    case Operacija.ObrisiSveDodele:
+                        Controller.Instance.ObrisiSveDodele();
+                        break;
+
+                    case Operacija.DodeliTakmicareTreneru:
+                        Controller.Instance.DodeliTakmicareTreneru((BindingList<Dodela>)zahtev.ZahtevObject);
                         break;
 
                     case Operacija.Kraj:
