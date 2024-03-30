@@ -107,12 +107,12 @@ namespace Server
             }
         }
 
-        public void SacuvajTrenera(Trener t)
+        public Trener SacuvajTrenera(Trener t)
         {
             try
             {
                 broker.OpenConnection();
-                broker.SacuvajTrenera(t);
+                return broker.SacuvajTrenera(t);
             }
             finally
             {
@@ -146,12 +146,12 @@ namespace Server
             }
         }
 
-        public void IzmeniTrenera(Trener t)
+        public Trener IzmeniTrenera(Trener t)
         {
             try
             {
                 broker.OpenConnection();
-                broker.IzmeniTrenera(t);
+                return broker.IzmeniTrenera(t);
             }
             finally
             {
@@ -159,7 +159,7 @@ namespace Server
             }
         }
 
-        public List<Trener> PretraziTrenere(string text)
+        public List<Trener> NadjiTrenere(string text)
         {
             try
             {
@@ -209,12 +209,12 @@ namespace Server
             }
         }
 
-        public void ObrisiTrenera(Trener t)
+        public Trener ObrisiTrenera(Trener t)
         {
             try
             {
                 broker.OpenConnection();
-                broker.ObrisiTrenera(t);
+                return broker.ObrisiTrenera(t);
             }
             catch (SqlException)
             {

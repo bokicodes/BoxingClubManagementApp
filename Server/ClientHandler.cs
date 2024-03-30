@@ -97,9 +97,35 @@ namespace Server
                         odgovor.OdgovorObject = Controller.Instance.ObrisiTakmicara((Takmicar)zahtev.ZahtevObject);
                         break;
 
+                    case Operacija.UcitajListuTrenera:
+                        odgovor.OdgovorObject = Controller.Instance.UcitajListuTrenera();
+                        break;
+
+                    case Operacija.NadjiTrenere:
+                        odgovor.OdgovorObject = Controller.Instance.NadjiTrenere(zahtev.ZahtevObject.ToString());
+                        break;
+
+                    case Operacija.ObrisiTrenera:
+                        odgovor.OdgovorObject = Controller.Instance.ObrisiTrenera((Trener)zahtev.ZahtevObject);
+                        break;
+
+                    case Operacija.UcitajListuGradova:
+                        odgovor.OdgovorObject = Controller.Instance.UcitajListuGradova();
+                        break;
+
+                    case Operacija.ZapamtiTrenera:
+                        odgovor.OdgovorObject = Controller.Instance.SacuvajTrenera((Trener)zahtev.ZahtevObject);
+                        break;
+
+                    case Operacija.IzmeniTrenera:
+                        odgovor.OdgovorObject = Controller.Instance.IzmeniTrenera((Trener)zahtev.ZahtevObject);
+                        break;
+
                     case Operacija.Kraj:
                         kraj = true;
                         break;
+
+
 
                     default:
                         break;

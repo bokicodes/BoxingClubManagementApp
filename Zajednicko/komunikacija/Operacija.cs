@@ -24,6 +24,8 @@ namespace Zajednicko
         DodeliTakmicareTreneru,
         UcitajTakmicareTrenera,
         IzmeniTakmicara,
-        ObrisiTakmicara
+        ObrisiTakmicara,
+        ObrisiTrenera,
+        IzmeniTrenera
     }
 }

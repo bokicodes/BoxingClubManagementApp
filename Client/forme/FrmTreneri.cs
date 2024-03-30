@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Client.forme
 {
@@ -24,7 +25,7 @@ namespace Client.forme
 
         public void OsveziListuTrenera()
         {
-            dgvTreneri.DataSource = Controller.Instance.UcitajListuTrenera();
+            dgvTreneri.DataSource = Komunikacija.Instance.UcitajListuTrenera();
             dgvTreneri.Columns[0].Visible = false;
             dgvTreneri.Columns[3].HeaderText = "Mesto življenja";
         }
@@ -54,7 +55,7 @@ namespace Client.forme
             string text = tbPretraziTrenere.Text;
 
 
-            dgvTreneri.DataSource = Controller.Instance.PretraziTrenere(text);
+            dgvTreneri.DataSource = Komunikacija.Instance.NadjiTrenere(text);
             
             dgvTreneri.Columns[0].Visible = false;
             dgvTreneri.Columns[3].HeaderText = "Mesto življenja";
@@ -69,15 +70,12 @@ namespace Client.forme
             }
 
             Trener t = dgvTreneri.SelectedRows[0].DataBoundItem as Trener;
-            try
-            {
-                Controller.Instance.ObrisiTrenera(t);
+            
+            bool obrisano = Komunikacija.Instance.ObrisiTrenera(t);
+            if (obrisano)
                 OsveziListuTrenera();
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Morate prvo obrisati u kartici 'Dodela' sve dodele sa ovim trenerom");
-            }
+            else
+                MessageBox.Show("Morate prvo u kartici 'Dodela' obrisati sve dodele sa ovim trenerom");
         }
     }
 }

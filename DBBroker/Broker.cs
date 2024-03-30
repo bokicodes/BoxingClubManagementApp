@@ -209,7 +209,7 @@ namespace DBBroker
             return listaNadjenihTakmicara;
         }
 
-        public void SacuvajTrenera(Trener t)
+        public Trener SacuvajTrenera(Trener t)
         {
             SqlCommand cmd = new SqlCommand("", connection);
 
@@ -220,6 +220,8 @@ namespace DBBroker
             cmd.Parameters.AddWithValue("@gradId", t.Grad.GradId);
 
             cmd.ExecuteNonQuery();
+
+            return t;
         }
 
         public List<Grad> UcitajListuGradova()
@@ -276,7 +278,7 @@ namespace DBBroker
             return listaTrenera;
         }
 
-        public void IzmeniTrenera(Trener t)
+        public Trener IzmeniTrenera(Trener t)
         {
             SqlCommand cmd = new SqlCommand("", connection);
 
@@ -289,6 +291,8 @@ namespace DBBroker
             cmd.Parameters.AddWithValue("@TId", t.TrenerId);
 
             cmd.ExecuteNonQuery();
+
+            return t;
         }
 
         public List<Trener> PretraziTrenere(string text)
@@ -389,7 +393,7 @@ namespace DBBroker
             cmd.ExecuteNonQuery();
         }
 
-        public void ObrisiTrenera(Trener t)
+        public Trener ObrisiTrenera(Trener t)
         {
             SqlCommand cmd = new SqlCommand("", connection);
 
@@ -398,6 +402,8 @@ namespace DBBroker
             cmd.Parameters.AddWithValue("@trenerId", t.TrenerId);
 
             cmd.ExecuteNonQuery();
+
+            return t;
         }
 
         public Takmicar ObrisiTakmicara(Takmicar t)

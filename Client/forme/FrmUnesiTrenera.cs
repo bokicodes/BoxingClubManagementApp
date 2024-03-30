@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Zajednicko.domen;
+using Zajednicko.komunikacija;
 
 namespace Client.forme
 {
@@ -21,7 +22,7 @@ namespace Client.forme
         {
             InitializeComponent();
 
-            cbGrad.DataSource = Controller.Instance.UcitajListuGradova();
+            cbGrad.DataSource = Komunikacija.Instance.UcitajListuGradova();
 
             this.frmTreneri = frmTreneri;
 
@@ -39,7 +40,7 @@ namespace Client.forme
             btnSacuvaj.Visible = false;
             btnIzmeni.Visible = true;
 
-            cbGrad.DataSource = Controller.Instance.UcitajListuGradova();
+            cbGrad.DataSource = Komunikacija.Instance.UcitajListuGradova();
             tbImeTrenera.Text = t.Ime;
             tbPrezimeTrenera.Text = t.Prezime;
             cbGrad.SelectedIndex = t.Grad.GradId - 1;
@@ -64,7 +65,7 @@ namespace Client.forme
                 Grad = grad
             };
 
-            Controller.Instance.SacuvajTrenera(t);
+            Trener zapamcenTrener = Komunikacija.Instance.ZapamtiTrenera(t);
             frmTreneri.OsveziListuTrenera();
             MessageBox.Show("Uspesan unos trenera");
             
@@ -116,7 +117,7 @@ namespace Client.forme
                 Grad = cbGrad.SelectedItem as Grad
             };
 
-            Controller.Instance.IzmeniTrenera(noviTrener);
+            Komunikacija.Instance.IzmeniTrenera(noviTrener);
             frmTreneri.OsveziListuTrenera();
             MessageBox.Show("Uspesna izmena trenera");
             this.Close();

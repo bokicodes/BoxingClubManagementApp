@@ -164,5 +164,77 @@ namespace Zajednicko.komunikacija
 
             return odgovor.Uspesno;
         }
+
+        public List<Trener> UcitajListuTrenera()
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.UcitajListuTrenera
+            };
+            helper.Posalji(zahtev);
+
+            return (List<Trener>)VratiRezultat();
+        }
+
+        public List<Trener> NadjiTrenere(string text)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.NadjiTrenere,
+                ZahtevObject = text
+            };
+            helper.Posalji(zahtev);
+
+            return (List<Trener>)VratiRezultat();
+        }
+
+        public bool ObrisiTrenera(Trener t)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.ObrisiTrenera,
+                ZahtevObject = t
+            };
+            helper.Posalji(zahtev);
+
+            Odgovor odgovor = helper.Primi<Odgovor>();
+
+            return odgovor.Uspesno;
+        }
+
+        public List<Grad> UcitajListuGradova()
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.UcitajListuGradova
+            };
+            helper.Posalji(zahtev);
+
+            return (List<Grad>)VratiRezultat();
+        }
+
+        public Trener ZapamtiTrenera(Trener t)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.ZapamtiTrenera,
+                ZahtevObject = t
+            };
+            helper.Posalji(zahtev);
+
+            return (Trener)VratiRezultat();
+        }
+
+        public Trener IzmeniTrenera(Trener noviTrener)
+        {
+            Zahtev zahtev = new Zahtev
+            {
+                Operacija = Operacija.IzmeniTrenera,
+                ZahtevObject = noviTrener
+            };
+            helper.Posalji(zahtev);
+
+            return (Trener)VratiRezultat();
+        }
     }
 }
