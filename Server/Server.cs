@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Server
@@ -26,12 +28,20 @@ namespace Server
 
         public void Listen()
         {
-            while (true)
+            try
             {
-                Socket klijentskiSocket = socket.Accept();
-                ClientHandler klijent = new ClientHandler(klijentskiSocket);
-                klijent.HandleRequests();
+                while (true)
+                {
+                    Socket klijentskiSocket = socket.Accept();
+                    ClientHandler klijent = new ClientHandler(klijentskiSocket);
+                    Thread nit = new Thread(klijent.HandleRequests);
+                    nit.Start();
+                }
+            }catch(SocketException ex)
+            {
+                Debug.WriteLine(">>>" + ex.Message);
             }
+            
         }
 
         public void Stop()

@@ -30,8 +30,8 @@ namespace Server
             
             server = new Server();      
             server.Start();
-            server.Listen();
-                  
+            Thread nit = new Thread(server.Listen);
+            nit.Start();                 
         }
 
         private void btnStop_Click(object sender, EventArgs e)
@@ -40,6 +40,11 @@ namespace Server
 
             btnStart.Enabled = true;
             btnStop.Enabled = false;
+        }
+
+        private void FrmServer_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

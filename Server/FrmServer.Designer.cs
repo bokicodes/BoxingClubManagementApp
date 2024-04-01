@@ -63,6 +63,7 @@
             this.Controls.Add(this.btnStart);
             this.Name = "FrmServer";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmServer_FormClosed);
             this.ResumeLayout(false);
 
         }
