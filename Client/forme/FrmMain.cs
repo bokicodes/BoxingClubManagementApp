@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +46,13 @@ namespace Client
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Komunikacija.Instance.Disconnect();
+            try
+            {
+                Komunikacija.Instance.Disconnect();
+            }catch(IOException ex)
+            {
+                Debug.WriteLine(">>>FormClosed>>>" + ex.Message);
+            }
         }
     }
 }
