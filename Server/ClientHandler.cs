@@ -19,7 +19,7 @@ namespace Server
 {
     public class ClientHandler
     {
-        private readonly Socket socket;
+        private Socket socket;
 
         private Helper helper;
 
@@ -48,8 +48,7 @@ namespace Server
             }
             finally
             {
-                socket.Shutdown(SocketShutdown.Both);
-                socket.Close();
+                CloseSocket();
             }
             
         }
@@ -157,6 +156,18 @@ namespace Server
                 odgovor.Poruka = ex.Message;
             }
             return odgovor;
+        }
+
+        internal void CloseSocket()
+        {
+            if(socket != null)
+            {
+                kraj = true;
+                socket.Shutdown(SocketShutdown.Both);
+                socket.Close();
+                socket = null;
+            }
+            
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Server
     public class Server
     {
         private Socket socket;
+        private List<ClientHandler> listaKlijenta = new List<ClientHandler>();
 
         public Server()
         {
@@ -34,6 +35,7 @@ namespace Server
                 {
                     Socket klijentskiSocket = socket.Accept();
                     ClientHandler klijent = new ClientHandler(klijentskiSocket);
+                    listaKlijenta.Add(klijent);
                     Thread nit = new Thread(klijent.HandleRequests);
                     nit.Start();
                 }
@@ -47,6 +49,10 @@ namespace Server
         public void Stop()
         {
             socket.Close();
+            foreach(ClientHandler klijent in listaKlijenta)
+            {
+                klijent.CloseSocket();
+            }
         }
     }
 }
