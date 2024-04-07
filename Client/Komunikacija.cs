@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.Sockets;
 using System.Runtime.Serialization.Formatters.Binary;
@@ -41,19 +42,36 @@ namespace Zajednicko.komunikacija
             helper = new Helper(socket);
         }
 
+        private void PosaljiZahtev(Zahtev zahtev)
+        {
+            try
+            {
+                helper.Posalji(zahtev);
+            }catch(IOException ex)
+            {
+                throw new ServerCommunicationException(ex.Message);
+            }
+        }
 
         public object VratiRezultat()
         {
-            Odgovor odgovor = helper.Primi<Odgovor>();
+            try
+            {
+                Odgovor odgovor = helper.Primi<Odgovor>();
 
-            if (odgovor.Uspesno)
+                if (odgovor.Uspesno)
+                {
+                    return odgovor.OdgovorObject;
+                }
+                else
+                {
+                    throw new SystemOperationException(odgovor.Poruka);
+                }
+            }catch(IOException ex)
             {
-                return odgovor.OdgovorObject;
+                throw new ServerCommunicationException(ex.Message);
             }
-            else
-            {
-                throw new SystemOperationException(odgovor.Poruka);
-            }
+            
         } 
 
         public Korisnik Login(Korisnik k)
@@ -63,7 +81,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.Login,
                 ZahtevObject = k
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (Korisnik)VratiRezultat();
         }
@@ -76,7 +94,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.Kraj,
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             socket.Shutdown(SocketShutdown.Both);
             socket.Close();
@@ -89,7 +107,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.UcitajListuTakmicara
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<Takmicar>)VratiRezultat();
         }
@@ -101,7 +119,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.NadjiTakmicare,
                 ZahtevObject = text
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<Takmicar>)VratiRezultat();
         }
@@ -112,7 +130,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.UcitajListuKategorija
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<Kategorija>)VratiRezultat();
         }
@@ -123,7 +141,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.UcitajListuStKategorija
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<StarosnaKategorija>)VratiRezultat();
         }
@@ -135,7 +153,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.ZapamtiTakmicara,
                 ZahtevObject = t
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (Takmicar)VratiRezultat();
         }
@@ -147,7 +165,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.IzmeniTakmicara,
                 ZahtevObject = noviT
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (Takmicar)VratiRezultat();
         }
@@ -159,7 +177,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.ObrisiTakmicara,
                 ZahtevObject = t
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             Odgovor odgovor = helper.Primi<Odgovor>();
 
@@ -172,7 +190,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.UcitajListuTrenera
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<Trener>)VratiRezultat();
         }
@@ -184,7 +202,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.NadjiTrenere,
                 ZahtevObject = text
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<Trener>)VratiRezultat();
         }
@@ -196,7 +214,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.ObrisiTrenera,
                 ZahtevObject = t
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             Odgovor odgovor = helper.Primi<Odgovor>();
 
@@ -209,7 +227,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.UcitajListuGradova
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<Grad>)VratiRezultat();
         }
@@ -221,7 +239,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.ZapamtiTrenera,
                 ZahtevObject = t
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (Trener)VratiRezultat();
         }
@@ -233,7 +251,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.IzmeniTrenera,
                 ZahtevObject = noviTrener
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (Trener)VratiRezultat();
         }
@@ -244,7 +262,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.UcitajTakmicareTrenera
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             return (List<Dodela>)VratiRezultat();
         }
@@ -255,7 +273,7 @@ namespace Zajednicko.komunikacija
             {
                 Operacija = Operacija.ObrisiSveDodele
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             VratiRezultat();
         }
@@ -267,7 +285,7 @@ namespace Zajednicko.komunikacija
                 Operacija = Operacija.DodeliTakmicareTreneru,
                 ZahtevObject = listaDodela,
             };
-            helper.Posalji(zahtev);
+            PosaljiZahtev(zahtev);
 
             VratiRezultat();
         }

@@ -1,4 +1,5 @@
 ﻿using Client.forme;
+using Client.izuzeci;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,14 +25,29 @@ namespace Client
 
         private void takmičariToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTakmicari frmTakmicari = new FrmTakmicari();
-            frmTakmicari.ShowDialog();
+            try
+            {
+                FrmTakmicari frmTakmicari = new FrmTakmicari();
+                frmTakmicari.ShowDialog();
+            }
+            catch (ServerCommunicationException)
+            {
+                MessageBox.Show("Server je ugasen");
+            }
+            
         }
 
         private void treneriToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmTreneri frmTreneri = new FrmTreneri();
-            frmTreneri.ShowDialog();
+            try
+            {
+                FrmTreneri frmTreneri = new FrmTreneri();
+                frmTreneri.ShowDialog();
+            }catch (ServerCommunicationException)
+            {
+                MessageBox.Show("Server je ugasen");
+            }
+            
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
@@ -40,8 +57,16 @@ namespace Client
 
         private void dodelaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmDodela frmDodela = new FrmDodela();
-            frmDodela.ShowDialog();
+            try
+            {
+                FrmDodela frmDodela = new FrmDodela();
+                frmDodela.ShowDialog();
+            }
+            catch (ServerCommunicationException)
+            {
+                MessageBox.Show("Server je ugasen");
+            }
+           
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -52,6 +77,10 @@ namespace Client
             }catch(IOException ex)
             {
                 Debug.WriteLine(">>>FormClosed>>>" + ex.Message);
+            }
+            catch (ServerCommunicationException)
+            {
+                Debug.WriteLine(">>>ServerUgasen>>>");
             }
         }
     }

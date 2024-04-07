@@ -1,4 +1,5 @@
-﻿using Server;
+﻿using Client.izuzeci;
+using Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,7 @@ namespace Client.forme
             
         }
         public void OsveziDgvTakmicara()
-        {      
+        {
             dgvTakmicari.DataSource = Komunikacija.Instance.UcitajListuTakmicara();
 
             dgvTakmicari.Columns[0].Visible = false;
