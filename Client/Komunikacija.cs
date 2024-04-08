@@ -42,12 +42,18 @@ namespace Zajednicko.komunikacija
             helper = new Helper(socket);
         }
 
-        private void PosaljiZahtev(Zahtev zahtev)
+        private void PosaljiZahtev(Operacija operacija, object zahtevObject = null)
         {
             try
             {
+                Zahtev zahtev = new Zahtev
+                {
+                    Operacija = operacija,
+                    ZahtevObject = zahtevObject
+                };
                 helper.Posalji(zahtev);
-            }catch(IOException ex)
+            }
+            catch (IOException ex)
             {
                 throw new ServerCommunicationException(ex.Message);
             }
@@ -76,12 +82,7 @@ namespace Zajednicko.komunikacija
 
         public Korisnik Login(Korisnik k)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.Login,
-                ZahtevObject = k
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.Login, k);
 
             return (Korisnik)VratiRezultat();
         }
@@ -90,11 +91,7 @@ namespace Zajednicko.komunikacija
         {
             if (socket == null) return;
 
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.Kraj,
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.Kraj);
 
             socket.Shutdown(SocketShutdown.Both);
             socket.Close();
@@ -103,81 +100,49 @@ namespace Zajednicko.komunikacija
 
         public List<Takmicar> UcitajListuTakmicara()
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.UcitajListuTakmicara
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.UcitajListuTakmicara);
 
             return (List<Takmicar>)VratiRezultat();
         }
 
         public List<Takmicar> NadjiTakmicare(string text)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.NadjiTakmicare,
-                ZahtevObject = text
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.NadjiTakmicare,text);
 
             return (List<Takmicar>)VratiRezultat();
         }
 
         public List<Kategorija> UcitajListuKategorija()
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.UcitajListuKategorija
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.UcitajListuKategorija);
 
             return (List<Kategorija>)VratiRezultat();
         }
 
         public object UcitajListuStKategorija()
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.UcitajListuStKategorija
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.UcitajListuStKategorija);
 
             return (List<StarosnaKategorija>)VratiRezultat();
         }
 
         public Takmicar ZapamtiTakmicara(Takmicar t)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.ZapamtiTakmicara,
-                ZahtevObject = t
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.ZapamtiTakmicara,t);
 
             return (Takmicar)VratiRezultat();
         }
 
         public Takmicar IzmeniTakmicara(Takmicar noviT)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.IzmeniTakmicara,
-                ZahtevObject = noviT
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.IzmeniTakmicara, noviT);
 
             return (Takmicar)VratiRezultat();
         }
 
         public bool ObrisiTakmicara(Takmicar t)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.ObrisiTakmicara,
-                ZahtevObject = t
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.ObrisiTakmicara,t);
 
             Odgovor odgovor = helper.Primi<Odgovor>();
 
@@ -186,35 +151,21 @@ namespace Zajednicko.komunikacija
 
         public List<Trener> UcitajListuTrenera()
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.UcitajListuTrenera
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.UcitajListuTrenera);
 
             return (List<Trener>)VratiRezultat();
         }
 
         public List<Trener> NadjiTrenere(string text)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.NadjiTrenere,
-                ZahtevObject = text
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.NadjiTrenere,text);
 
             return (List<Trener>)VratiRezultat();
         }
 
         public bool ObrisiTrenera(Trener t)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.ObrisiTrenera,
-                ZahtevObject = t
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.ObrisiTrenera,t);
 
             Odgovor odgovor = helper.Primi<Odgovor>();
 
@@ -223,69 +174,42 @@ namespace Zajednicko.komunikacija
 
         public List<Grad> UcitajListuGradova()
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.UcitajListuGradova
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.UcitajListuGradova);
 
             return (List<Grad>)VratiRezultat();
         }
 
         public Trener ZapamtiTrenera(Trener t)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.ZapamtiTrenera,
-                ZahtevObject = t
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.ZapamtiTrenera,t);
 
             return (Trener)VratiRezultat();
         }
 
         public Trener IzmeniTrenera(Trener noviTrener)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.IzmeniTrenera,
-                ZahtevObject = noviTrener
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.IzmeniTrenera,noviTrener);
 
             return (Trener)VratiRezultat();
         }
 
         public List<Dodela> UcitajTakmicareTrenera()
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.UcitajTakmicareTrenera
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.UcitajTakmicareTrenera);
 
             return (List<Dodela>)VratiRezultat();
         }
 
         public void ObrisiSveDodele()
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.ObrisiSveDodele
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.ObrisiSveDodele);
 
             VratiRezultat();
         }
 
         internal void DodeliTakmicareTreneru(BindingList<Dodela> listaDodela)
         {
-            Zahtev zahtev = new Zahtev
-            {
-                Operacija = Operacija.DodeliTakmicareTreneru,
-                ZahtevObject = listaDodela,
-            };
-            PosaljiZahtev(zahtev);
+            PosaljiZahtev(Operacija.DodeliTakmicareTreneru, listaDodela);
 
             VratiRezultat();
         }
