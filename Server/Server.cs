@@ -36,6 +36,7 @@ namespace Server
                     Socket klijentskiSocket = socket.Accept();
                     ClientHandler klijent = new ClientHandler(klijentskiSocket);
                     listaKlijenta.Add(klijent);
+                    klijent.OdjavljenKlijent += OdjaviKlijenta;
                     Thread nit = new Thread(klijent.HandleRequests);
                     nit.Start();
                 }
@@ -46,10 +47,15 @@ namespace Server
             
         }
 
+        private void OdjaviKlijenta(object sender, EventArgs e)
+        {
+            listaKlijenta.Remove((ClientHandler)sender);
+        }
+
         public void Stop()
         {
             socket.Close();
-            foreach(ClientHandler klijent in listaKlijenta)
+            foreach(ClientHandler klijent in listaKlijenta.ToList())
             {
                 klijent.CloseSocket();
             }

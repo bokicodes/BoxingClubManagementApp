@@ -23,6 +23,8 @@ namespace Server
 
         private Helper helper;
 
+        public EventHandler OdjavljenKlijent;
+
         public ClientHandler(Socket socket)
         {
             this.socket = socket;
@@ -158,15 +160,21 @@ namespace Server
             return odgovor;
         }
 
+        private object lockObject = new object();
         internal void CloseSocket()
         {
-            if(socket != null)
+            lock (lockObject)
             {
-                kraj = true;
-                socket.Shutdown(SocketShutdown.Both);
-                socket.Close();
-                socket = null;
+                if (socket != null)
+                {
+                    kraj = true;
+                    socket.Shutdown(SocketShutdown.Both);
+                    socket.Close();
+                    socket = null;
+                    OdjavljenKlijent?.Invoke(this, EventArgs.Empty);
+                }
             }
+            
             
         }
     }
