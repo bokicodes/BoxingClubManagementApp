@@ -16,17 +16,14 @@ namespace Client.GUIController
         {
             frmUnesiTrenera.BtnSacuvaj.Visible = false;
             frmUnesiTrenera.BtnIzmeni.Visible = true;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-
->>>>>>> f345773ed77b1a1f8f87b1048d9d191955524fd9
->>>>>>> 99bff36ba669f1cbae798374727bf75962ff0816
             frmUnesiTrenera.CbGrad.DataSource = Komunikacija.Instance.UcitajListuGradova();
             frmUnesiTrenera.TbImeTrenera.Text = t.Ime;
             frmUnesiTrenera.TbPrezimeTrenera.Text = t.Prezime;
-            frmUnesiTrenera.CbGrad.SelectedIndex = t.Grad.GradId - 1;
+            if (t.Grad.GradId == 11)
+                frmUnesiTrenera.CbGrad.SelectedIndex = t.Grad.GradId - 2;
+            else
+                frmUnesiTrenera.CbGrad.SelectedIndex = t.Grad.GradId - 1;
+
         }
 
         internal void InitDataUnesi(FrmUnesiTrenera frmUnesiTrenera)

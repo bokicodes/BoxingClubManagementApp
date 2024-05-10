@@ -94,6 +94,7 @@
     <Compile Include="forme\FrmUnesiTrenera.Designer.cs">
       <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIController\TreneriController.cs" />
     <Compile Include="GUIController\UnesiDodeluController.cs" />
     <Compile Include="GUIController\UnesiTakmicaraController.cs" />
     <Compile Include="GUIController\UnesiTreneraController.cs" />
