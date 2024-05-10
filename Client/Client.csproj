@@ -94,6 +94,7 @@
     <Compile Include="forme\FrmUnesiTrenera.Designer.cs">
       <DependentUpon>FrmUnesiTrenera.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUIController\UnesiTakmicaraController.cs" />
     <Compile Include="izuzeci\ServerCommunicationException.cs" />
     <Compile Include="izuzeci\SystemOperationException.cs" />
     <Compile Include="Komunikacija.cs" />

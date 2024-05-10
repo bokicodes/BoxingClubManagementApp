@@ -1,4 +1,6 @@
-﻿namespace Client.forme
+﻿using System.Windows.Forms;
+
+namespace Client.forme
 {
     partial class FrmUnesiTakmicara
     {
@@ -224,5 +226,20 @@
         private System.Windows.Forms.ComboBox cbStarosnaKategorija;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button btnIzmeni;
+
+        public Label Label1 { get => label1; set => label1 = value; }
+        public TextBox TbImeTakmicara { get => tbImeTakmicara; set => tbImeTakmicara = value; }
+        public ComboBox CbKategorija { get => cbKategorija; set => cbKategorija = value; }
+        public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
+        public TextBox TbPrezimeTakmicara { get => tbPrezimeTakmicara; set => tbPrezimeTakmicara = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public TextBox TbTezina { get => tbTezina; set => tbTezina = value; }
+        public Label Label3 { get => label3; set => label3 = value; }
+        public Label Label4 { get => label4; set => label4 = value; }
+        public Label Label5 { get => label5; set => label5 = value; }
+        public Label Label6 { get => label6; set => label6 = value; }
+        public ComboBox CbStarosnaKategorija { get => cbStarosnaKategorija; set => cbStarosnaKategorija = value; }
+        public DateTimePicker DateTimePicker1 { get => dateTimePicker1; set => dateTimePicker1 = value; }
+        public Button BtnIzmeni { get => btnIzmeni; set => btnIzmeni = value; }
     }
 }
