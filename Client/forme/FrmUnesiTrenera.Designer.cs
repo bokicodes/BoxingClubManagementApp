@@ -1,4 +1,6 @@
-﻿namespace Client.forme
+﻿using System.Windows.Forms;
+
+namespace Client.forme
 {
     partial class FrmUnesiTrenera
     {
@@ -148,5 +150,14 @@
         private System.Windows.Forms.TextBox tbImeTrenera;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnIzmeni;
+
+        public Label Label3 { get => label3; set => label3 = value; }
+        public TextBox TbPrezimeTrenera { get => tbPrezimeTrenera; set => tbPrezimeTrenera = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
+        public ComboBox CbGrad { get => cbGrad; set => cbGrad = value; }
+        public TextBox TbImeTrenera { get => tbImeTrenera; set => tbImeTrenera = value; }
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Button BtnIzmeni { get => btnIzmeni; set => btnIzmeni = value; }
     }
 }
