@@ -1,4 +1,6 @@
-﻿namespace Client.forme
+﻿using System.Windows.Forms;
+
+namespace Client.forme
 {
     partial class FrmTakmicari
     {
@@ -144,5 +146,13 @@
         private System.Windows.Forms.Button btnDetalji;
         private System.Windows.Forms.Button btnUnesi;
         private System.Windows.Forms.Button btnObrisiTakmicara;
+
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public TextBox TbPretraziTakmicare { get => tbPretraziTakmicare; set => tbPretraziTakmicare = value; }
+        public DataGridView DgvTakmicari { get => dgvTakmicari; set => dgvTakmicari = value; }
+        public Button BtnDetalji { get => btnDetalji; set => btnDetalji = value; }
+        public Button BtnUnesi { get => btnUnesi; set => btnUnesi = value; }
+        public Button BtnObrisiTakmicara { get => btnObrisiTakmicara; set => btnObrisiTakmicara = value; }
     }
 }
