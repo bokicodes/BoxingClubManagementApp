@@ -1,4 +1,6 @@
-﻿namespace Client.forme
+﻿using System.Windows.Forms;
+
+namespace Client.forme
 {
     partial class FrmTreneri
     {
@@ -144,5 +146,13 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnObrisiTrenera;
+
+        public Button BtnUnesi { get => btnUnesi; set => btnUnesi = value; }
+        public Button BtnDetalji { get => btnDetalji; set => btnDetalji = value; }
+        public DataGridView DgvTreneri { get => dgvTreneri; set => dgvTreneri = value; }
+        public TextBox TbPretraziTrenere { get => tbPretraziTrenere; set => tbPretraziTrenere = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Button BtnObrisiTrenera { get => btnObrisiTrenera; set => btnObrisiTrenera = value; }
     }
 }

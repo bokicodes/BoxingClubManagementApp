@@ -1,4 +1,5 @@
-﻿using Server;
+﻿using Client.GUIController;
+using Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,66 +17,40 @@ namespace Client.forme
 {
     public partial class FrmTreneri : Form
     {
+        private TreneriController controller;
+        private FrmUnesiTrenera frmUnesiTrenera;
         public FrmTreneri()
         {
             InitializeComponent();
 
+            controller = new TreneriController();
             OsveziListuTrenera();
         }
 
         public void OsveziListuTrenera()
         {
-            dgvTreneri.DataSource = Komunikacija.Instance.UcitajListuTrenera();
-            dgvTreneri.Columns[0].Visible = false;
-            dgvTreneri.Columns[3].HeaderText = "Mesto življenja";
+            controller.OsveziListuTrenera(this);
         }
 
         private void btnUnesi_Click(object sender, EventArgs e)
         {
-            FrmUnesiTrenera frmUnesiTrenera = new FrmUnesiTrenera(this);
+            frmUnesiTrenera = new FrmUnesiTrenera(this);
             frmUnesiTrenera.ShowDialog();
         }
 
         private void btnDetalji_Click(object sender, EventArgs e)
         {
-            if(dgvTreneri.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Niste odabrali red");
-                return;
-            }
-
-            Trener t = dgvTreneri.SelectedRows[0].DataBoundItem as Trener;
-
-            FrmUnesiTrenera frmUnesiTrenera = new FrmUnesiTrenera(this, t);
-            frmUnesiTrenera.ShowDialog();
+            controller.PrikaziTrenera(this, frmUnesiTrenera);    
         }
 
         private void tbPretraziTrenere_TextChanged(object sender, EventArgs e)
         {
-            string text = tbPretraziTrenere.Text;
-
-
-            dgvTreneri.DataSource = Komunikacija.Instance.NadjiTrenere(text);
-            
-            dgvTreneri.Columns[0].Visible = false;
-            dgvTreneri.Columns[3].HeaderText = "Mesto življenja";
+            controller.PretraziTrenere(this);
         }
 
         private void btnObrisiTrenera_Click(object sender, EventArgs e)
         {
-            if (dgvTreneri.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Niste odabrali red");
-                return;
-            }
-
-            Trener t = dgvTreneri.SelectedRows[0].DataBoundItem as Trener;
-            
-            bool obrisano = Komunikacija.Instance.ObrisiTrenera(t);
-            if (obrisano)
-                OsveziListuTrenera();
-            else
-                MessageBox.Show("Morate prvo u kartici 'Dodela' obrisati sve dodele sa ovim trenerom");
+            controller.ObrisiTrenera(this);
         }
     }
 }
