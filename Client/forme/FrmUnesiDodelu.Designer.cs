@@ -1,4 +1,6 @@
-﻿namespace Client.forme
+﻿using System.Windows.Forms;
+
+namespace Client.forme
 {
     partial class FrmUnesiDodelu
     {
@@ -151,5 +153,14 @@
         private System.Windows.Forms.ComboBox cbTakmicari;
         private System.Windows.Forms.Button btnSacuvaj;
         private System.Windows.Forms.Button btnObrisiDodelu;
+
+        public ComboBox CbTreneri { get => cbTreneri; set => cbTreneri = value; }
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Button BtnDodajUListu { get => btnDodajUListu; set => btnDodajUListu = value; }
+        public DataGridView DgvDodela { get => dgvDodela; set => dgvDodela = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public ComboBox CbTakmicari { get => cbTakmicari; set => cbTakmicari = value; }
+        public Button BtnSacuvaj { get => btnSacuvaj; set => btnSacuvaj = value; }
+        public Button BtnObrisiDodelu { get => btnObrisiDodelu; set => btnObrisiDodelu = value; }
     }
 }

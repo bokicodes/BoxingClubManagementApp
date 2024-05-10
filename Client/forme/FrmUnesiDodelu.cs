@@ -1,4 +1,5 @@
-﻿using Server;
+﻿using Client.GUIController;
+using Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,10 @@ namespace Client.forme
 {
     public partial class FrmUnesiDodelu : Form
     {
+        private UnesiDodeluController controller = new UnesiDodeluController();
         private readonly FrmDodela frmDodela;
         private readonly VrstaDodele operacija;
-        BindingList<Dodela> listaDodela;
+        public BindingList<Dodela> listaDodela;
 
         public FrmUnesiDodelu(FrmDodela frmDodela, VrstaDodele operacija)
         {
@@ -25,63 +27,22 @@ namespace Client.forme
 
             if(operacija == VrstaDodele.IZMENA)
             {
-                listaDodela = new BindingList<Dodela>(Komunikacija.Instance.UcitajTakmicareTrenera());
-                dgvDodela.DataSource = listaDodela;
-                btnObrisiDodelu.Visible = true;
-                btnSacuvaj.Text = "Sačuvaj izmene";
+                controller.IzmeniDodelu(this);
             }
             else if(operacija == VrstaDodele.UNOS)
             {
-                listaDodela = new BindingList<Dodela>();
-                dgvDodela.DataSource = listaDodela;
-                btnObrisiDodelu.Visible = false;
-                btnSacuvaj.Text = "Sačuvaj";
-            }      
+                controller.UnesiDodelu(this);
+            }
 
-            cbTreneri.DataSource = Komunikacija.Instance.UcitajListuTrenera();
-            cbTakmicari.DataSource = Komunikacija.Instance.UcitajListuTakmicara();
+            controller.InitData(this);
+
             this.frmDodela = frmDodela;
             this.operacija = operacija;
         }
 
         private void btnDodajUListu_Click(object sender, EventArgs e)
         {
-            List<Dodela> sacuvanaListaDodela = Komunikacija.Instance.UcitajTakmicareTrenera();
-
-            Trener trener = cbTreneri.SelectedItem as Trener;
-            Takmicar takmicar = cbTakmicari.SelectedItem as Takmicar;
-
-            if(trener == null || takmicar == null)
-            {
-                MessageBox.Show("Morate izabrati i trenera i takmicara");
-                return;
-            }
-            
-            foreach(Dodela d in sacuvanaListaDodela)
-            {
-                if (d.Trener.TrenerId == trener.TrenerId && d.Takmicar.TakmicarId == takmicar.TakmicarId)
-                {
-                    MessageBox.Show("Ta kombinacija trenera i takmicara je vec sacuvana!");
-                    return;
-                }
-            }
-
-            foreach(Dodela d in listaDodela)
-            {
-                if(d.Trener.TrenerId == trener.TrenerId && d.Takmicar.TakmicarId == takmicar.TakmicarId)
-                {
-                    MessageBox.Show("Vec postoji u listi ta kombinacija");
-                    return;
-                }
-            }
-
-            Dodela dodela = new Dodela
-            {
-                Takmicar = takmicar,
-                Trener = trener
-            };
-
-            listaDodela.Add(dodela);
+            controller.DodajDodelu(this, listaDodela);
         }
 
         private void btnSacuvaj_Click(object sender, EventArgs e)
@@ -89,70 +50,17 @@ namespace Client.forme
 
             if (operacija == VrstaDodele.IZMENA)
             {
-                try
-                {
-                    Komunikacija.Instance.ObrisiSveDodele();
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Došlo je do greške prilikom brisanja dodela");
-                    return;
-                }
-
-                if (listaDodela.Count == 0)
-                {
-                    frmDodela.OsveziListuDodela();
-                    MessageBox.Show("Uspešno ste izmenili dodele takmičara i trenera");
-                    return;
-                }
-
-
-                try
-                {
-                    Komunikacija.Instance.DodeliTakmicareTreneru(listaDodela);
-                    frmDodela.OsveziListuDodela();
-                    MessageBox.Show("Uspešno ste izmenili dodele takmičara i trenera");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Došlo je do greske prilikom izmene dodela!");
-                }
+                controller.SacuvajIzmenuDodele(this, frmDodela, listaDodela);
             }
 
             if(operacija == VrstaDodele.UNOS)
             {
-                if (listaDodela.Count == 0)
-                {
-                    MessageBox.Show("Morate prvo dodati u listu nekog trenera i takmičara");
-                    return;
-                }
-
-                try
-                {
-                    Komunikacija.Instance.DodeliTakmicareTreneru(listaDodela);
-                    frmDodela.OsveziListuDodela();
-                    dgvDodela.Rows.Clear();
-
-                    MessageBox.Show("Uspešno ste dodelili takmičare trenerima");
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Došlo je do greške prilikom čuvanja dodela!");
-                }
+                controller.SacuvajUnosDodele(this, frmDodela, listaDodela);
             }
         }
         private void btnObrisiDodelu_Click(object sender, EventArgs e)
         {
-            if (dgvDodela.SelectedRows.Count == 0)
-            {
-                MessageBox.Show("Niste odabrali red");
-                return;
-            }
-
-            Dodela d = dgvDodela.SelectedRows[0].DataBoundItem as Dodela;
-
-            listaDodela.Remove(d);
-            dgvDodela.DataSource = listaDodela;
+            controller.ObrisiDodelu(this, listaDodela);
         }
     }
 }
