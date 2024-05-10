@@ -1,4 +1,6 @@
-﻿namespace Client.forme
+﻿using System.Windows.Forms;
+
+namespace Client.forme
 {
     partial class FrmDodela
     {
@@ -105,5 +107,10 @@
         private System.Windows.Forms.Button btnUnesi;
         private System.Windows.Forms.Button btnDetalji;
         private System.Windows.Forms.DataGridView dgvDodela;
+
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Button BtnUnesi { get => btnUnesi; set => btnUnesi = value; }
+        public Button BtnDetalji { get => btnDetalji; set => btnDetalji = value; }
+        public DataGridView DgvDodela { get => dgvDodela; set => dgvDodela = value; }
     }
 }

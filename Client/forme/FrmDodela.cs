@@ -1,4 +1,5 @@
-﻿using Server;
+﻿using Client.GUIController;
+using Server;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,16 +22,17 @@ namespace Client.forme
     }
     public partial class FrmDodela : Form
     {
+        private DodelaController controller;
         public FrmDodela()
         {
             InitializeComponent();
-
+            controller = new DodelaController();
             OsveziListuDodela();
         }
 
         public void OsveziListuDodela()
         {
-            dgvDodela.DataSource = Komunikacija.Instance.UcitajTakmicareTrenera();
+            controller.OsveziListuDodela(this);
         }
 
         private void btnUnesi_Click(object sender, EventArgs e)
