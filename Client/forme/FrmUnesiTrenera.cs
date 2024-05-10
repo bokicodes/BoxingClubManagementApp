@@ -34,7 +34,6 @@ namespace Client.forme
 
             this.frmTreneri = frmTreneri;
             this.t = t;
-
             controller.InitDataIzmeni(this, t);
         }
 

@@ -16,6 +16,10 @@ namespace Client.GUIController
         {
             frmUnesiTrenera.BtnSacuvaj.Visible = false;
             frmUnesiTrenera.BtnIzmeni.Visible = true;
+<<<<<<< HEAD
+=======
+
+>>>>>>> f345773ed77b1a1f8f87b1048d9d191955524fd9
             frmUnesiTrenera.CbGrad.DataSource = Komunikacija.Instance.UcitajListuGradova();
             frmUnesiTrenera.TbImeTrenera.Text = t.Ime;
             frmUnesiTrenera.TbPrezimeTrenera.Text = t.Prezime;
