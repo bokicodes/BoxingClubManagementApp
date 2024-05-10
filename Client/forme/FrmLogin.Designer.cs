@@ -1,4 +1,6 @@
-﻿namespace Client
+﻿using System.Windows.Forms;
+
+namespace Client
 {
     partial class FrmLogin
     {
@@ -104,6 +106,12 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbPassword;
+
+        public TextBox TbUsername { get => tbUsername; set => tbUsername = value; }
+        public Label Label1 { get => label1; set => label1 = value; }
+        public Button BtnLogin { get => btnLogin; set => btnLogin = value; }
+        public Label Label2 { get => label2; set => label2 = value; }
+        public TextBox TbPassword { get => tbPassword; set => tbPassword = value; }
     }
 }
 

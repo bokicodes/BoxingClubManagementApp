@@ -1,4 +1,5 @@
-﻿using Client.izuzeci;
+﻿using Client.GUIController;
+using Client.izuzeci;
 using Server;
 using System;
 using System.Collections.Generic;
@@ -18,48 +19,16 @@ namespace Client
 {
     public partial class FrmLogin : Form
     {
+        private LoginController controller;
         public FrmLogin()
         {
             InitializeComponent();
+            controller = new LoginController();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = tbUsername.Text;
-            string pw = tbPassword.Text;
-
-            try
-            {
-                Korisnik k = new Korisnik
-                {
-                    KorisnickoIme = username,
-                    Lozinka = pw
-                };
-
-                Komunikacija.Instance.Connect();
-                Komunikacija.Instance.Login(k);
-
-
-                if (k != null)
-                {                 
-                    FrmMain frmMain = new FrmMain();
-                    this.Visible = false;
-                    frmMain.ShowDialog();
-                    this.Visible = true;
-                }
-                else
-                {
-                    MessageBox.Show("Korisnik sa tim parametrima ne postoji");
-                    Komunikacija.Instance.Disconnect();
-                }
-            }catch(SystemOperationException ex)
-            {
-                MessageBox.Show(ex.Message);
-                Komunikacija.Instance.Disconnect();
-            }catch(SocketException)
-            {
-                MessageBox.Show("Doslo je do greske pri radu sa serverom");
-            }
+            controller.Login(this);
         }
 
         private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
