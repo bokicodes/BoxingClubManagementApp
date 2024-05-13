@@ -46,15 +46,9 @@ namespace Server
 
         public List<StarosnaKategorija> UcitajListuStKategorija()
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.UcitajListuStKategorija();
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new UcitajListuStKategorijaSO();
+            so.ExecuteTemplate();
+            return ((UcitajListuStKategorijaSO)so).ListaStarosnihKategorija;
         }
 
         public List<Takmicar> UcitajListuTakmicara()
