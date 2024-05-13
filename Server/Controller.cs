@@ -53,15 +53,9 @@ namespace Server
 
         public List<Takmicar> UcitajListuTakmicara()
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.UcitajListuTakmicara();
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new UcitajListuTakmicaraSO();
+            so.ExecuteTemplate();
+            return ((UcitajListuTakmicaraSO)so).ListaTakmicara;
         }
 
         public Takmicar IzmeniTakmicara(Takmicar t)
