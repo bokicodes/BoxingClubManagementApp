@@ -44,5 +44,11 @@
     <Compile Include="SOBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBBroker\DBBroker.csproj">
+      <Project>{C1E1AD6C-EB86-42C3-8D0B-DE77025F75E6}</Project>
+      <Name>DBBroker</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
