@@ -66,7 +66,7 @@ namespace DBBroker
 
         public List<Kategorija> UcitajListuKategorija()
         {
-            SqlCommand command = new SqlCommand("", connection);
+            SqlCommand command = new SqlCommand("", connection, transaction);
 
             command.CommandText = "select * from kategorija";
 
@@ -89,7 +89,7 @@ namespace DBBroker
 
         public List<StarosnaKategorija> UcitajListuStKategorija()
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"select * from starosnakategorija";
 
@@ -113,7 +113,7 @@ namespace DBBroker
 
         public List<Takmicar> UcitajListuTakmicara()
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"select * from Takmicar t join " +
                 $"Kategorija k on (t.Kategorija = k.KategorijaId) " +
@@ -152,7 +152,7 @@ namespace DBBroker
 
         public Takmicar IzmeniTakmicara(Takmicar t)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"update takmicar set ime=@ime,prezime=@prezime," +
                 $"tezina=@tezina,DatRodj=@DatRodj,Kategorija=@KatId," +
@@ -173,7 +173,7 @@ namespace DBBroker
 
         public List<Takmicar> NadjiTakmicare(string text)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"select * from takmicar t join kategorija k on t.Kategorija = k.KategorijaId" +
                 $" join StarosnaKategorija sk on t.StKategorija = sk.StKategorijaId where Ime like '%{text}%'";
@@ -211,7 +211,7 @@ namespace DBBroker
 
         public Trener SacuvajTrenera(Trener t)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"insert into trener values (@ime,@prezime,@gradId)";
 
@@ -226,7 +226,7 @@ namespace DBBroker
 
         public List<Grad> UcitajListuGradova()
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"select * from grad";
 
@@ -250,7 +250,7 @@ namespace DBBroker
 
         public List<Trener> UcitajListuTrenera()
         {
-            SqlCommand cmd = new SqlCommand("",connection);
+            SqlCommand cmd = new SqlCommand("",connection, transaction);
 
             cmd.CommandText = $"select * from trener t join grad g on t.Grad = g.GradId";
 
@@ -280,7 +280,7 @@ namespace DBBroker
 
         public Trener IzmeniTrenera(Trener t)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"update trener set ime=@ime,prezime=@prezime,grad=@gradId" +
                 $" where TrenerId = @TId";
@@ -297,7 +297,7 @@ namespace DBBroker
 
         public List<Trener> PretraziTrenere(string text)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"select * from trener t join grad g on t.Grad = g.GradId where t.Ime like '%{text}%'";
 
@@ -327,7 +327,7 @@ namespace DBBroker
 
         public List<Dodela> UcitajTakmicareTrenera()
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"select * from dodela d join takmicar t on d.Takmicar = t.TakmicarId join kategorija k on t.Kategorija = k.KategorijaId join StarosnaKategorija sk on t.StKategorija = sk.StKategorijaId join trener tr on d.Trener = tr.TrenerId join grad g on tr.Grad = g.GradId order by tr.Ime asc";
 
@@ -395,7 +395,7 @@ namespace DBBroker
 
         public Trener ObrisiTrenera(Trener t)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"DELETE FROM Trener WHERE TrenerId=@trenerId";
 
@@ -408,7 +408,7 @@ namespace DBBroker
 
         public Takmicar ObrisiTakmicara(Takmicar t)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"DELETE FROM Takmicar WHERE TakmicarId=@takmicarId";
 
@@ -421,7 +421,7 @@ namespace DBBroker
 
         public void ObrisiDodelu(Dodela d)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"DELETE FROM Dodela WHERE Takmicar=@takmicarId AND Trener=@trenerId";
 
@@ -442,7 +442,7 @@ namespace DBBroker
 
         public List<Korisnik> VratiListuKorisnika()
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"select * from korisnik";
 
