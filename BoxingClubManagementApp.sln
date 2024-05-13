@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBBroker", "DBBroker\DBBrok
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{1C812EE2-3DFC-46D5-A78E-04A345265533}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SistemskeOperacije", "SistemskeOperacije\SistemskeOperacije.csproj", "{286BF3AA-FE22-488B-AB9F-11A029F2D900}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{1C812EE2-3DFC-46D5-A78E-04A345265533}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C812EE2-3DFC-46D5-A78E-04A345265533}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C812EE2-3DFC-46D5-A78E-04A345265533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{286BF3AA-FE22-488B-AB9F-11A029F2D900}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{286BF3AA-FE22-488B-AB9F-11A029F2D900}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{286BF3AA-FE22-488B-AB9F-11A029F2D900}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{286BF3AA-FE22-488B-AB9F-11A029F2D900}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
