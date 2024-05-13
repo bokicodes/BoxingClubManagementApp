@@ -23,8 +23,7 @@ namespace Server
                 return instance;
             }
         }
-        private Broker broker;
-
+        public Broker broker;
         private Controller()
         {
             broker = new Broker();
@@ -60,15 +59,9 @@ namespace Server
 
         public Takmicar IzmeniTakmicara(Takmicar t)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.IzmeniTakmicara(t);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new IzmeniTakmicaraSO(t);
+            so.ExecuteTemplate();
+            return ((IzmeniTakmicaraSO)so).t;
         }
 
         public List<Takmicar> NadjiTakmicare(string text)
