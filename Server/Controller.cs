@@ -39,15 +39,9 @@ namespace Server
 
         public List<Kategorija> UcitajListuKategorija()
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.UcitajListuKategorija();
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new UcitajListuKategorijaSO();
+            so.ExecuteTemplate();
+            return ((UcitajListuKategorijaSO)so).ListaKategorija;
         }
 
         public List<StarosnaKategorija> UcitajListuStKategorija()
