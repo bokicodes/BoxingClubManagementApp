@@ -66,15 +66,9 @@ namespace Server
 
         public List<Takmicar> NadjiTakmicare(string text)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.NadjiTakmicare(text);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new NadjiTakmicareSO(text);
+            so.ExecuteTemplate();
+            return ((NadjiTakmicareSO)so).ListaPronadjenihTakmicara;
         }
 
         public Trener SacuvajTrenera(Trener t)
