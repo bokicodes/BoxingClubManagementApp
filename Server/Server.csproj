@@ -87,6 +87,10 @@
       <Project>{C1E1AD6C-EB86-42C3-8D0B-DE77025F75E6}</Project>
       <Name>DBBroker</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SistemskeOperacije\SistemskeOperacije.csproj">
+      <Project>{286BF3AA-FE22-488B-AB9F-11A029F2D900}</Project>
+      <Name>SistemskeOperacije</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Zajednicko\Zajednicko.csproj">
       <Project>{F721FA08-FFBF-4F70-9176-9E5CC9A71218}</Project>
       <Name>Zajednicko</Name>

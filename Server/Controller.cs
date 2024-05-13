@@ -1,4 +1,5 @@
 ﻿using DBBroker;
+using SistemskeOperacije;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,15 +32,9 @@ namespace Server
 
         public Takmicar ZapamtiTakmicara(Takmicar t)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.ZapamtiTakmicara(t);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new ZapamtiTakmicaraSO(t);
+            so.ExecuteTemplate();
+            return ((ZapamtiTakmicaraSO)so).t;
         }
 
         public List<Kategorija> UcitajListuKategorija()

@@ -47,7 +47,7 @@ namespace DBBroker
 
         public Takmicar ZapamtiTakmicara(Takmicar t)
         {
-            SqlCommand cmd = new SqlCommand("", connection);
+            SqlCommand cmd = new SqlCommand("", connection, transaction);
 
             cmd.CommandText = $"insert into Takmicar values(@Ime,@Prezime,@Tezina," +
                 $"@DatRodj,@KategorijaId,@StKategorijaId)";

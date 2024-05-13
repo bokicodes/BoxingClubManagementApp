@@ -43,11 +43,16 @@
   <ItemGroup>
     <Compile Include="SOBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZapamtiTakmicaraSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBBroker\DBBroker.csproj">
       <Project>{C1E1AD6C-EB86-42C3-8D0B-DE77025F75E6}</Project>
       <Name>DBBroker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Zajednicko\Zajednicko.csproj">
+      <Project>{F721FA08-FFBF-4F70-9176-9E5CC9A71218}</Project>
+      <Name>Zajednicko</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
