@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Zajednicko.domen;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Server
 {
@@ -71,17 +72,11 @@ namespace Server
             return ((NadjiTakmicareSO)so).ListaPronadjenihTakmicara;
         }
 
-        public Trener SacuvajTrenera(Trener t)
+        public Trener ZapamtiTrenera(Trener t)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.SacuvajTrenera(t);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new ZapamtiTreneraSO(t);
+            so.ExecuteTemplate();
+            return ((ZapamtiTreneraSO)so).t;
         }
 
         public List<Grad> UcitajListuGradova()

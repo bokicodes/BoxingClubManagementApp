@@ -116,7 +116,7 @@ namespace Server
                         break;
 
                     case Operacija.ZapamtiTrenera:
-                        odgovor.OdgovorObject = Controller.Instance.SacuvajTrenera((Trener)zahtev.ZahtevObject);
+                        odgovor.OdgovorObject = Controller.Instance.ZapamtiTrenera((Trener)zahtev.ZahtevObject);
                         break;
 
                     case Operacija.IzmeniTrenera:

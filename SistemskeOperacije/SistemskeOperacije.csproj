@@ -49,6 +49,7 @@
     <Compile Include="UcitajListuStKategorijaSO.cs" />
     <Compile Include="UcitajListuTakmicaraSO.cs" />
     <Compile Include="ZapamtiTakmicaraSO.cs" />
+    <Compile Include="ZapamtiTreneraSO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DBBroker\DBBroker.csproj">

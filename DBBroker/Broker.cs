@@ -209,7 +209,7 @@ namespace DBBroker
             return listaNadjenihTakmicara;
         }
 
-        public Trener SacuvajTrenera(Trener t)
+        public Trener ZapamtiTrenera(Trener t)
         {
             SqlCommand cmd = new SqlCommand("", connection, transaction);
 
