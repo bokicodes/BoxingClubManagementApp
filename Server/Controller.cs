@@ -135,15 +135,8 @@ namespace Server
 
         public void ObrisiDodelu(Dodela d)
         {
-            try
-            {
-                broker.OpenConnection();
-                broker.ObrisiDodelu(d);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new ObrisiDodeluSO(d);
+            so.ExecuteTemplate();
         }
 
         public void ObrisiSveDodele()
