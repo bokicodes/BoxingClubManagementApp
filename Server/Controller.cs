@@ -147,15 +147,9 @@ namespace Server
 
         public List<Korisnik> VratiListuKorisnika()
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.VratiListuKorisnika();
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new UcitajListuKorisnikaSO();
+            so.ExecuteTemplate();
+            return ((UcitajListuKorisnikaSO)so).ListaKorisnika;
         }
 
         public Korisnik Login(Korisnik k)
