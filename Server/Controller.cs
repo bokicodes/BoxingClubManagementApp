@@ -154,15 +154,9 @@ namespace Server
 
         public Korisnik Login(Korisnik k)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.Login(k);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new LoginSO(k);
+            so.ExecuteTemplate();
+            return ((LoginSO)so).K;
         }
     }
 }
