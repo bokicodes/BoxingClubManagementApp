@@ -109,15 +109,9 @@ namespace Server
 
         public List<Dodela> UcitajTakmicareTrenera()
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.UcitajTakmicareTrenera();
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new UcitajTakmicareTreneraSO();
+            so.ExecuteTemplate();
+            return ((UcitajTakmicareTreneraSO)so).ListaDodela;
         }
         public void DodeliTakmicareTreneru(BindingList<Dodela> listaDodela)
         {
