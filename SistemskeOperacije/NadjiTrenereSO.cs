@@ -12,7 +12,7 @@ namespace SistemskeOperacije
     {
         private readonly string search;
 
-        public List<Trener> ListaPronadjenihTrenera { get; set; }
+        public List<Trener> ListaPronadjenihTrenera { get; private set; }
         public NadjiTrenereSO(string search)
         {
             this.search = search;

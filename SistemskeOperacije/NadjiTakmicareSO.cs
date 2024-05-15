@@ -11,7 +11,7 @@ namespace SistemskeOperacije
     public class NadjiTakmicareSO : SOBase
     {
         private readonly string text;
-        public List<Takmicar> ListaPronadjenihTakmicara { get; set; }
+        public List<Takmicar> ListaPronadjenihTakmicara { get; private set; }
 
         public NadjiTakmicareSO(string text)
         {

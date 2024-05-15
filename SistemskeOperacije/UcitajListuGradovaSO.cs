@@ -9,7 +9,7 @@ namespace SistemskeOperacije
 {
     public class UcitajListuGradovaSO : SOBase
     {
-        public List<Grad> ListaGradova { get; set; }
+        public List<Grad> ListaGradova { get; private set; }
         protected override void Execute()
         {
             ListaGradova = broker.UcitajListuGradova();

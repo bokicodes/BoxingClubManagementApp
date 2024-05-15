@@ -9,7 +9,7 @@ namespace SistemskeOperacije
 {
     public class UcitajListuTreneraSO : SOBase
     {
-        public List<Trener> ListaTrenera { get; set; }
+        public List<Trener> ListaTrenera { get; private set; }
         protected override void Execute()
         {
             ListaTrenera = broker.UcitajListuTrenera();
