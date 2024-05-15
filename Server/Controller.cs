@@ -128,19 +128,9 @@ namespace Server
 
         public Takmicar ObrisiTakmicara(Takmicar t)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.ObrisiTakmicara(t);
-            }
-            catch (SqlException)
-            {
-                throw;
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new ObrisiTakmicaraSO(t);
+            so.ExecuteTemplate();
+            return ((ObrisiTakmicaraSO)so).T;
         }
 
         public void ObrisiDodelu(Dodela d)
