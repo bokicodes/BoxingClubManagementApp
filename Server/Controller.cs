@@ -115,27 +115,8 @@ namespace Server
         }
         public void DodeliTakmicareTreneru(BindingList<Dodela> listaDodela)
         {
-            try
-            {
-                broker.OpenConnection();
-                broker.BeginTransaction();
-
-                foreach(Dodela d in listaDodela)
-                {
-                    broker.SacuvajDodelu(d);
-                }
-
-                broker.Commit();
-            }
-            catch (Exception)
-            {
-                broker.Rollback();
-                throw;
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new DodeliTakmicareTreneruSO(listaDodela);
+            so.ExecuteTemplate();
         }
 
         public Trener ObrisiTrenera(Trener t)
