@@ -121,19 +121,9 @@ namespace Server
 
         public Trener ObrisiTrenera(Trener t)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.ObrisiTrenera(t);
-            }
-            catch (SqlException)
-            {
-                throw;
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new ObrisiTreneraSO(t);
+            so.ExecuteTemplate();
+            return ((ObrisiTreneraSO)so).T;
         }
 
         public Takmicar ObrisiTakmicara(Takmicar t)

@@ -46,6 +46,7 @@
     <Compile Include="IzmeniTreneraSO.cs" />
     <Compile Include="NadjiTakmicareSO.cs" />
     <Compile Include="NadjiTrenereSO.cs" />
+    <Compile Include="ObrisiTreneraSO.cs" />
     <Compile Include="SOBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UcitajListuGradovaSO.cs" />
