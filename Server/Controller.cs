@@ -102,15 +102,9 @@ namespace Server
 
         public List<Trener> NadjiTrenere(string text)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.PretraziTrenere(text);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new NadjiTrenereSO(text); 
+            so.ExecuteTemplate();
+            return ((NadjiTrenereSO)so).ListaPronadjenihTrenera;
         }
 
         public List<Dodela> UcitajTakmicareTrenera()
