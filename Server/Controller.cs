@@ -81,15 +81,9 @@ namespace Server
 
         public List<Grad> UcitajListuGradova()
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.UcitajListuGradova();
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new UcitajListuGradovaSO();
+            so.ExecuteTemplate();
+            return ((UcitajListuGradovaSO)so).ListaGradova;
         }
 
         public object UcitajListuTrenera()
