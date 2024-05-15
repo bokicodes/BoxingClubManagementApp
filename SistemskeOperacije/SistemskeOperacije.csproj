@@ -47,6 +47,7 @@
     <Compile Include="NadjiTakmicareSO.cs" />
     <Compile Include="NadjiTrenereSO.cs" />
     <Compile Include="ObrisiDodeluSO.cs" />
+    <Compile Include="ObrisiSveDodeleSO.cs" />
     <Compile Include="ObrisiTakmicaraSO.cs" />
     <Compile Include="ObrisiTreneraSO.cs" />
     <Compile Include="SOBase.cs" />

@@ -141,24 +141,8 @@ namespace Server
 
         public void ObrisiSveDodele()
         {
-            try
-            {
-                broker.OpenConnection();
-                broker.BeginTransaction();
-
-                broker.ObrisiSveDodele();
-
-                broker.Commit();
-            }
-            catch (Exception)
-            {
-                broker.Rollback();
-                throw;
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new ObrisiSveDodeleSO();
+            so.ExecuteTemplate();
         }
 
         public List<Korisnik> VratiListuKorisnika()
