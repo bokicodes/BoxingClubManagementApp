@@ -95,15 +95,9 @@ namespace Server
 
         public Trener IzmeniTrenera(Trener t)
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.IzmeniTrenera(t);
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new IzmeniTreneraSO(t);
+            so.ExecuteTemplate();
+            return ((IzmeniTreneraSO)so).T;
         }
 
         public List<Trener> NadjiTrenere(string text)
