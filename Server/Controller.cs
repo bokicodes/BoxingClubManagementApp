@@ -88,15 +88,9 @@ namespace Server
 
         public object UcitajListuTrenera()
         {
-            try
-            {
-                broker.OpenConnection();
-                return broker.UcitajListuTrenera();
-            }
-            finally
-            {
-                broker.CloseConnection();
-            }
+            SOBase so = new UcitajListuTreneraSO();
+            so.ExecuteTemplate();
+            return ((UcitajListuTreneraSO)so).ListaTrenera;
         }
 
         public Trener IzmeniTrenera(Trener t)

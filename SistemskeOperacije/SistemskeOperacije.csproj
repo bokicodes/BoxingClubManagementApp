@@ -49,6 +49,7 @@
     <Compile Include="UcitajListuKategorijaSO.cs" />
     <Compile Include="UcitajListuStKategorijaSO.cs" />
     <Compile Include="UcitajListuTakmicaraSO.cs" />
+    <Compile Include="UcitajListuTreneraSO.cs" />
     <Compile Include="ZapamtiTakmicaraSO.cs" />
     <Compile Include="ZapamtiTreneraSO.cs" />
   </ItemGroup>
