@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,11 @@ namespace Zajednicko.domen
         public string NazivTabele => "Trener";
 
         public string VrednostiZaUneti => $"'{Ime}', '{Prezime}', {Grad.GradId}";
+
+        public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
+        {
+            throw new NotImplementedException();
+        }
 
         public override string ToString()
         {
