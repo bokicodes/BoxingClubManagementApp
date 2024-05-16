@@ -56,27 +56,23 @@ namespace DBBroker
             return obj;
         }
 
-        public List<Kategorija> UcitajListuKategorija()
+        public List<IDomenskiObjekat> UcitajListu(IDomenskiObjekat obj)
         {
             SqlCommand command = new SqlCommand("", connection, transaction);
 
-            command.CommandText = "select * from kategorija";
+            command.CommandText = $"select * from {obj.NazivTabele}";
 
-            List<Kategorija> sveKategorije = new List<Kategorija>();
+            List<IDomenskiObjekat> listaObjekta = new List<IDomenskiObjekat>();
 
             using (SqlDataReader reader = command.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    Kategorija k = new Kategorija()
-                    {
-                        KategorijaId = (int)reader["KategorijaId"],
-                        Naziv = (string)reader["Naziv"],
-                    };
-                    sveKategorije.Add(k);
+                    IDomenskiObjekat objZaUnos = obj.KreirajObjekat(reader);
+                    listaObjekta.Add(objZaUnos);
                 }
             }
-            return sveKategorije;
+            return listaObjekta;
         }
 
         public List<StarosnaKategorija> UcitajListuStKategorija()
