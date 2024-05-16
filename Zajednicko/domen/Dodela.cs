@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 namespace Zajednicko.domen
 {
     [Serializable]
-    public class Dodela
+    public class Dodela : IDomenskiObjekat
     {
         public Trener Trener { get; set; }
         public Takmicar Takmicar { get; set; }
+
+        public string NazivTabele => "Dodela";
+
+        public string VrednostiZaUneti => $"{Takmicar.TakmicarId}, {Trener.TrenerId}";
     }
 }

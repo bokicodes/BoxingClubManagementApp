@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="domen\Dodela.cs" />
     <Compile Include="domen\Grad.cs" />
+    <Compile Include="domen\IDomenskiObjekat.cs" />
     <Compile Include="domen\Kategorija.cs" />
     <Compile Include="domen\Korisnik.cs" />
     <Compile Include="domen\StarosnaKategorija.cs" />

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Zajednicko.domen
 {
     [Serializable]
-    public class Takmicar
+    public class Takmicar : IDomenskiObjekat
     {
         public int TakmicarId { get; set; }
         public string Ime { get; set; }
@@ -17,6 +17,11 @@ namespace Zajednicko.domen
         public Kategorija Kategorija { get; set; }
         public StarosnaKategorija StKategorija { get; set; }
         public List<Dodela> ListaDodela { get; set; }
+
+        public string NazivTabele => "Takmicar";
+
+        public string VrednostiZaUneti => $"'{Ime}', '{Prezime}', {Tezina}, '{DatRodj}'," +
+            $"{Kategorija.KategorijaId}, {StKategorija.StKategorijaId}";
 
         public override string ToString()
         {
