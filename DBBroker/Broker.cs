@@ -45,23 +45,15 @@ namespace DBBroker
         }
         
 
-        public Takmicar ZapamtiTakmicara(Takmicar t)
+        public IDomenskiObjekat Zapamti(IDomenskiObjekat obj)
         {
             SqlCommand cmd = new SqlCommand("", connection, transaction);
 
-            cmd.CommandText = $"insert into Takmicar values(@Ime,@Prezime,@Tezina," +
-                $"@DatRodj,@KategorijaId,@StKategorijaId)";
-
-            cmd.Parameters.AddWithValue("@Ime", t.Ime);
-            cmd.Parameters.AddWithValue("@Prezime", t.Prezime);
-            cmd.Parameters.AddWithValue("@Tezina", t.Tezina);
-            cmd.Parameters.AddWithValue("@DatRodj", t.DatRodj);
-            cmd.Parameters.AddWithValue("@KategorijaId", t.Kategorija.KategorijaId);
-            cmd.Parameters.AddWithValue("@StKategorijaId", t.StKategorija.StKategorijaId);
+            cmd.CommandText = $"insert into {obj.NazivTabele} values({obj.VrednostiZaUneti})";
 
             cmd.ExecuteNonQuery();
 
-            return t;
+            return obj;
         }
 
         public List<Kategorija> UcitajListuKategorija()
@@ -208,22 +200,6 @@ namespace DBBroker
             }
             return listaNadjenihTakmicara;
         }
-
-        public Trener ZapamtiTrenera(Trener t)
-        {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
-
-            cmd.CommandText = $"insert into trener values (@ime,@prezime,@gradId)";
-
-            cmd.Parameters.AddWithValue("@ime", t.Ime);
-            cmd.Parameters.AddWithValue("@prezime", t.Prezime);
-            cmd.Parameters.AddWithValue("@gradId", t.Grad.GradId);
-
-            cmd.ExecuteNonQuery();
-
-            return t;
-        }
-
         public List<Grad> UcitajListuGradova()
         {
             SqlCommand cmd = new SqlCommand("", connection, transaction);
@@ -380,19 +356,6 @@ namespace DBBroker
             }
             return listaDodela;
         }
-
-        public void SacuvajDodelu(Dodela d)
-        {
-            SqlCommand cmd = new SqlCommand("", connection,transaction);
-
-            cmd.CommandText = $"insert into dodela values (@takmicarID,@trenerID)";
-
-            cmd.Parameters.AddWithValue("@takmicarID", d.Takmicar.TakmicarId);
-            cmd.Parameters.AddWithValue("@trenerID",d.Trener.TrenerId);
-
-            cmd.ExecuteNonQuery();
-        }
-
         public Trener ObrisiTrenera(Trener t)
         {
             SqlCommand cmd = new SqlCommand("", connection, transaction);
