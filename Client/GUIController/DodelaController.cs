@@ -13,6 +13,8 @@ namespace Client.GUIController
         internal void OsveziListuDodela(FrmDodela frmDodela)
         {
             frmDodela.DgvDodela.DataSource = Komunikacija.Instance.UcitajTakmicareTrenera();
+            frmDodela.DgvDodela.Columns[2].Visible = false;
+            frmDodela.DgvDodela.Columns[3].Visible = false;
         }
     }
 }

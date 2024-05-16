@@ -63,6 +63,8 @@ namespace Client.GUIController
         {
             frmUnesiDodelu.listaDodela = new BindingList<Dodela>(Komunikacija.Instance.UcitajTakmicareTrenera());
             frmUnesiDodelu.DgvDodela.DataSource = frmUnesiDodelu.listaDodela;
+            frmUnesiDodelu.DgvDodela.Columns[2].Visible = false;
+            frmUnesiDodelu.DgvDodela.Columns[3].Visible = false;
             frmUnesiDodelu.BtnObrisiDodelu.Visible = true;
             frmUnesiDodelu.BtnSacuvaj.Text = "Sačuvaj izmene";
         }
@@ -139,6 +141,8 @@ namespace Client.GUIController
         {
             frmUnesiDodelu.listaDodela = new BindingList<Dodela>();
             frmUnesiDodelu.DgvDodela.DataSource = frmUnesiDodelu.listaDodela;
+            frmUnesiDodelu.DgvDodela.Columns[2].Visible = false;
+            frmUnesiDodelu.DgvDodela.Columns[3].Visible = false;
             frmUnesiDodelu.BtnObrisiDodelu.Visible = false;
             frmUnesiDodelu.BtnSacuvaj.Text = "Sačuvaj";
         }

@@ -36,6 +36,8 @@ namespace Client.GUIController
             frmTakmicari.DgvTakmicari.Columns[0].Visible = false;
             frmTakmicari.DgvTakmicari.Columns[3].Visible = false;
             frmTakmicari.DgvTakmicari.Columns[4].Visible = false;
+            frmTakmicari.DgvTakmicari.Columns[7].Visible = false;
+            frmTakmicari.DgvTakmicari.Columns[8].Visible = false;
 
             frmTakmicari.DgvTakmicari.Columns[6].HeaderText = "Starosna Kategorija";
         }
