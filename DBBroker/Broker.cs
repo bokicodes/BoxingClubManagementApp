@@ -75,30 +75,6 @@ namespace DBBroker
             return listaObjekta;
         }
 
-        public List<StarosnaKategorija> UcitajListuStKategorija()
-        {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
-
-            cmd.CommandText = $"select * from starosnakategorija";
-
-            List<StarosnaKategorija> sveStKategorije = new List<StarosnaKategorija>();
-
-            using(SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    StarosnaKategorija sk = new StarosnaKategorija()
-                    {
-                       StKategorijaId = (int)reader["StKategorijaId"],
-                        Naziv = (string)reader["Naziv"]
-                    };
-
-                    sveStKategorije.Add(sk);
-                }
-            }
-            return sveStKategorije;
-        }
-
         public List<Takmicar> UcitajListuTakmicara()
         {
             SqlCommand cmd = new SqlCommand("", connection, transaction);
@@ -196,30 +172,6 @@ namespace DBBroker
             }
             return listaNadjenihTakmicara;
         }
-        public List<Grad> UcitajListuGradova()
-        {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
-
-            cmd.CommandText = $"select * from grad";
-
-            List<Grad> listaGradova = new List<Grad>();
-
-            using(SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while(reader.Read())
-                {
-                    Grad grad = new Grad()
-                    {
-                        GradId = (int)reader["GradId"],
-                        Naziv = (string)reader["Naziv"],
-                        PostanskiBroj = (string)reader["PostanskiBroj"]
-                    };
-                    listaGradova.Add(grad);
-                }
-            }
-            return listaGradova;
-        }
-
         public List<Trener> UcitajListuTrenera()
         {
             SqlCommand cmd = new SqlCommand("",connection, transaction);
@@ -398,34 +350,9 @@ namespace DBBroker
 
             cmd.ExecuteNonQuery();
         }
-
-        public List<Korisnik> VratiListuKorisnika()
-        {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
-
-            cmd.CommandText = $"select * from korisnik";
-
-            List<Korisnik> listaKorisnika = new List<Korisnik>();
-
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    Korisnik k = new Korisnik
-                    {
-                        KorisnickoIme = (string)reader["KorisnickoIme"],
-                        Lozinka = (string)reader["Lozinka"]
-                    };
-
-                    listaKorisnika.Add(k);
-                }
-            }
-            return listaKorisnika;
-        }
-
         public Korisnik Login(Korisnik k)
         {
-            List<Korisnik> listaKorisnika = VratiListuKorisnika();
+            List<Korisnik> listaKorisnika = UcitajListu(new Korisnik()).OfType<Korisnik>().ToList();
 
             foreach(Korisnik korisnik in listaKorisnika)
             {
