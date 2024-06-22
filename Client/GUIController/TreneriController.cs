@@ -30,6 +30,9 @@ namespace Client.GUIController
         {
             frmTreneri.DgvTreneri.DataSource = Komunikacija.Instance.UcitajListuTrenera();
             frmTreneri.DgvTreneri.Columns[0].Visible = false;
+            frmTreneri.DgvTreneri.Columns[4].Visible = false;
+            frmTreneri.DgvTreneri.Columns[5].Visible = false;
+
             frmTreneri.DgvTreneri.Columns[3].HeaderText = "Mesto življenja";
         }
 
@@ -41,6 +44,9 @@ namespace Client.GUIController
             frmTreneri.DgvTreneri.DataSource = Komunikacija.Instance.NadjiTrenere(text);
 
             frmTreneri.DgvTreneri.Columns[0].Visible = false;
+            frmTreneri.DgvTreneri.Columns[4].Visible = false;
+            frmTreneri.DgvTreneri.Columns[5].Visible = false;
+
             frmTreneri.DgvTreneri.Columns[3].HeaderText = "Mesto življenja";
         }
 
