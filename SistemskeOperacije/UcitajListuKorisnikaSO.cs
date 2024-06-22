@@ -12,7 +12,7 @@ namespace SistemskeOperacije
         public List<Korisnik> ListaKorisnika { get; private set; }
         protected override void Execute()
         {
-            ListaKorisnika = broker.UcitajListu(new Korisnik()).OfType<Korisnik>().ToList();
+            ListaKorisnika = broker.VratiListuKorisnika();
         }
     }
 }

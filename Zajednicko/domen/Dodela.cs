@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +15,5 @@ namespace Zajednicko.domen
         public string NazivTabele => "Dodela";
 
         public string VrednostiZaUneti => $"{Takmicar.TakmicarId}, {Trener.TrenerId}";
-
-        public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

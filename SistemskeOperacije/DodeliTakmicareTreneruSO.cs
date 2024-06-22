@@ -20,7 +20,7 @@ namespace SistemskeOperacije
         {
             foreach (Dodela d in listaDodela)
             {
-                broker.Zapamti(d);
+                broker.SacuvajDodelu(d);
             }
         }
     }
