@@ -12,7 +12,7 @@ namespace SistemskeOperacije
         public List<Takmicar> ListaTakmicara { get; private set; }
         protected override void Execute()
         {
-            ListaTakmicara = broker.UcitajListuTakmicara();
+            ListaTakmicara = broker.UcitajListu(new Takmicar()).OfType<Takmicar>().ToList();
         }
     }
 }

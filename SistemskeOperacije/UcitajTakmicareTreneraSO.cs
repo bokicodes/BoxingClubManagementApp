@@ -12,7 +12,7 @@ namespace SistemskeOperacije
         public List<Dodela> ListaDodela { get; private set; }
         protected override void Execute()
         {
-            ListaDodela = broker.UcitajTakmicareTrenera();
+            ListaDodela = broker.UcitajListu(new Dodela()).OfType<Dodela>().ToList();
         }
     }
 }

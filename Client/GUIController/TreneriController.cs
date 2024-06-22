@@ -32,6 +32,7 @@ namespace Client.GUIController
             frmTreneri.DgvTreneri.Columns[0].Visible = false;
             frmTreneri.DgvTreneri.Columns[4].Visible = false;
             frmTreneri.DgvTreneri.Columns[5].Visible = false;
+            frmTreneri.DgvTreneri.Columns[6].Visible = false;
 
             frmTreneri.DgvTreneri.Columns[3].HeaderText = "Mesto življenja";
         }
@@ -46,6 +47,7 @@ namespace Client.GUIController
             frmTreneri.DgvTreneri.Columns[0].Visible = false;
             frmTreneri.DgvTreneri.Columns[4].Visible = false;
             frmTreneri.DgvTreneri.Columns[5].Visible = false;
+            frmTreneri.DgvTreneri.Columns[6].Visible = false;
 
             frmTreneri.DgvTreneri.Columns[3].HeaderText = "Mesto življenja";
         }

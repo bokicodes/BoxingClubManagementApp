@@ -12,7 +12,7 @@ namespace SistemskeOperacije
         public List<Trener> ListaTrenera { get; private set; }
         protected override void Execute()
         {
-            ListaTrenera = broker.UcitajListuTrenera();
+            ListaTrenera = broker.UcitajListu(new Trener()).OfType<Trener>().ToList();
         }
     }
 }

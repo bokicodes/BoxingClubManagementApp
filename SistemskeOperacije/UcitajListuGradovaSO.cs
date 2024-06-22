@@ -12,7 +12,7 @@ namespace SistemskeOperacije
         public List<Grad> ListaGradova { get; private set; }
         protected override void Execute()
         {
-            ListaGradova = broker.UcitajListuGradova();
+            ListaGradova = broker.UcitajListu(new Grad()).OfType<Grad>().ToList();
         }
     }
 }

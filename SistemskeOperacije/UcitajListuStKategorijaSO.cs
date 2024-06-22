@@ -12,7 +12,7 @@ namespace SistemskeOperacije
         public List<StarosnaKategorija> ListaStarosnihKategorija { get; private set; }
         protected override void Execute()
         {
-            ListaStarosnihKategorija =  broker.UcitajListuStKategorija();
+            ListaStarosnihKategorija =  broker.UcitajListu(new StarosnaKategorija()).OfType<StarosnaKategorija>().ToList();
         }
     }
 }

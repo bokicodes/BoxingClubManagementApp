@@ -16,6 +16,7 @@ namespace Client.GUIController
 
             frmDodela.DgvDodela.Columns[2].Visible = false;
             frmDodela.DgvDodela.Columns[3].Visible = false;
+            frmDodela.DgvDodela.Columns[4].Visible = false;
         }
     }
 }
