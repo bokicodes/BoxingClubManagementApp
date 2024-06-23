@@ -19,7 +19,7 @@ namespace SistemskeOperacije
         }
         protected override void Execute()
         {
-            ListaPronadjenihTrenera = broker.PretraziTrenere(search);
+            ListaPronadjenihTrenera = broker.Pretrazi(new Trener(),search).OfType<Trener>().ToList();
         }
     }
 }

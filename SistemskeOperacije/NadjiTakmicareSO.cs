@@ -10,16 +10,16 @@ namespace SistemskeOperacije
 {
     public class NadjiTakmicareSO : SOBase
     {
-        private readonly string text;
+        private readonly string search;
         public List<Takmicar> ListaPronadjenihTakmicara { get; private set; }
 
-        public NadjiTakmicareSO(string text)
+        public NadjiTakmicareSO(string search)
         {
-            this.text = text;
+            this.search = search;
         }
         protected override void Execute()
         {
-            ListaPronadjenihTakmicara = broker.NadjiTakmicare(text);
+            ListaPronadjenihTakmicara = broker.Pretrazi(new Takmicar(), search).OfType<Takmicar>().ToList();
         }
     }
 }

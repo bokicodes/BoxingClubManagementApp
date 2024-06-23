@@ -19,6 +19,10 @@ namespace Zajednicko.domen
 
         public string Joinovanje => string.Empty;
 
+        public string VrednostiZaIzmenu => throw new NotImplementedException();
+
+        public string BrisanjePoKoloni => throw new NotImplementedException();
+
         public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
         {
             StarosnaKategorija sk = new StarosnaKategorija()

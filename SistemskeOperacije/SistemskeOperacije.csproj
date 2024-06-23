@@ -55,7 +55,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UcitajListuGradovaSO.cs" />
     <Compile Include="UcitajListuKategorijaSO.cs" />
-    <Compile Include="UcitajListuKorisnikaSO.cs" />
     <Compile Include="UcitajListuStKategorijaSO.cs" />
     <Compile Include="UcitajListuTakmicaraSO.cs" />
     <Compile Include="UcitajListuTreneraSO.cs" />

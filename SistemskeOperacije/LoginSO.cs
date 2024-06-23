@@ -17,7 +17,17 @@ namespace SistemskeOperacije
         }
         protected override void Execute()
         {
-            K = broker.Login(k);
+            List<Korisnik> listaKorisnika = broker.UcitajListu(new Korisnik()).OfType<Korisnik>().ToList();
+
+            foreach (Korisnik korisnik in listaKorisnika)
+            {
+                if (k.KorisnickoIme == korisnik.KorisnickoIme && k.Lozinka == korisnik.Lozinka)
+                {
+                    K = k;
+                    return;
+                }
+            }
+            K = null;
         }
     }
 }

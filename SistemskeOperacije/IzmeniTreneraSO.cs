@@ -28,7 +28,7 @@ namespace SistemskeOperacije
         }
         protected override void Execute()
         {
-            broker.IzmeniTrenera(t);
+            broker.Izmeni(t);
         }
     }
 }

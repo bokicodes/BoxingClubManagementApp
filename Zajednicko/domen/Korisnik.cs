@@ -18,11 +18,21 @@ namespace Zajednicko.domen
 
         public string VrednostiZaUneti => throw new NotImplementedException();
 
-        public string Joinovanje => throw new NotImplementedException();
+        public string Joinovanje => String.Empty;
+
+        public string VrednostiZaIzmenu => throw new NotImplementedException();
+
+        public string BrisanjePoKoloni => throw new NotImplementedException();
 
         public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
         {
-            throw new NotImplementedException();
+            Korisnik k = new Korisnik
+            {
+                KorisnickoIme = (string)reader["KorisnickoIme"],
+                Lozinka = (string)reader["Lozinka"]
+            };
+
+            return k;
         }
     }
 }

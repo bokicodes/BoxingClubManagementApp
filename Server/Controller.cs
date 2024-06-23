@@ -145,13 +145,6 @@ namespace Server
             so.ExecuteTemplate();
         }
 
-        public List<Korisnik> VratiListuKorisnika()
-        {
-            SOBase so = new UcitajListuKorisnikaSO();
-            so.ExecuteTemplate();
-            return ((UcitajListuKorisnikaSO)so).ListaKorisnika;
-        }
-
         public Korisnik Login(Korisnik k)
         {
             SOBase so = new LoginSO(k);

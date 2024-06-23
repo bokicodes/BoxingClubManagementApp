@@ -20,6 +20,10 @@ namespace Zajednicko.domen
 
         public string Joinovanje => String.Empty;
 
+        public string VrednostiZaIzmenu => throw new NotImplementedException();
+
+        public string BrisanjePoKoloni => throw new NotImplementedException();
+
         public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
         {
             Grad grad = new Grad()

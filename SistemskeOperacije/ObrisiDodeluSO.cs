@@ -17,7 +17,7 @@ namespace SistemskeOperacije
         }
         protected override void Execute()
         {
-            broker.ObrisiDodelu(d);
+            broker.Obrisi(d);
         }
     }
 }

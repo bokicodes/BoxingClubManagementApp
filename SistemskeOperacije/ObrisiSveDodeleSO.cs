@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Zajednicko.domen;
 
 namespace SistemskeOperacije
 {
@@ -10,7 +11,7 @@ namespace SistemskeOperacije
     {
         protected override void Execute()
         {
-            broker.ObrisiSveDodele();
+            broker.ObrisiSve(new Dodela());
         }
     }
 }

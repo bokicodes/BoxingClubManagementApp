@@ -12,6 +12,8 @@ namespace Zajednicko.domen
         string NazivTabele { get; }
         string VrednostiZaUneti { get; }
         string Joinovanje { get; }
+        string VrednostiZaIzmenu { get; }
+        string BrisanjePoKoloni { get; }
 
         IDomenskiObjekat KreirajObjekat(SqlDataReader reader);
     }

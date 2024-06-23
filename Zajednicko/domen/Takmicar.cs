@@ -28,6 +28,12 @@ namespace Zajednicko.domen
                 $"Kategorija k on (t.Kategorija = k.KategorijaId) " +
                 $"join StarosnaKategorija sk on (t.StKategorija = sk.StKategorijaId)";
 
+        public string VrednostiZaIzmenu => $"ime='{Ime}',prezime='{Prezime}'," +
+                $"tezina={Tezina},DatRodj='{DatRodj}',Kategorija={Kategorija.KategorijaId}," +
+                $"StKategorija={StKategorija.StKategorijaId} where TakmicarId={TakmicarId}";
+
+        public string BrisanjePoKoloni => $"TakmicarId={TakmicarId}";
+
         public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
         {
             Takmicar t = new Takmicar

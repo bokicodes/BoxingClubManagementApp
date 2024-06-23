@@ -39,6 +39,8 @@ namespace Client.GUIController
             frmTakmicari.DgvTakmicari.Columns[7].Visible = false;
             frmTakmicari.DgvTakmicari.Columns[8].Visible = false;
             frmTakmicari.DgvTakmicari.Columns[9].Visible = false;
+            frmTakmicari.DgvTakmicari.Columns[10].Visible = false;
+            frmTakmicari.DgvTakmicari.Columns[11].Visible = false;
 
             frmTakmicari.DgvTakmicari.Columns[6].HeaderText = "Starosna Kategorija";
         }
@@ -54,6 +56,8 @@ namespace Client.GUIController
             frmTakmicari.DgvTakmicari.Columns[7].Visible = false;
             frmTakmicari.DgvTakmicari.Columns[8].Visible = false;
             frmTakmicari.DgvTakmicari.Columns[9].Visible = false;
+            frmTakmicari.DgvTakmicari.Columns[10].Visible = false;
+            frmTakmicari.DgvTakmicari.Columns[11].Visible = false;
 
             frmTakmicari.DgvTakmicari.Columns[6].HeaderText = "Starosna Kategorija";
             

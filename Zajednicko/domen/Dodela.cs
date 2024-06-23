@@ -22,6 +22,10 @@ namespace Zajednicko.domen
             $"t.StKategorija = sk.StKategorijaId join trener tr on d.Trener = tr.TrenerId " +
             $"join grad g on tr.Grad = g.GradId order by tr.Ime asc";
 
+        public string VrednostiZaIzmenu => throw new NotImplementedException();
+
+        public string BrisanjePoKoloni => $"Takmicar={Takmicar.TakmicarId} AND Trener={Trener.TrenerId}";
+
         public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
         {
             Takmicar takmicar = new Takmicar

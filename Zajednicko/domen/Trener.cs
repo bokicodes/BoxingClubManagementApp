@@ -22,6 +22,11 @@ namespace Zajednicko.domen
 
         public string Joinovanje => $"t join grad g on t.Grad = g.GradId";
 
+        public string VrednostiZaIzmenu => $"ime='{Ime}',prezime='{Prezime}',grad={Grad.GradId}" +
+                $" where TrenerId = {TrenerId}";
+
+        public string BrisanjePoKoloni => $"TrenerId = {TrenerId}";
+
         public IDomenskiObjekat KreirajObjekat(SqlDataReader reader)
         {
             Trener t = new Trener

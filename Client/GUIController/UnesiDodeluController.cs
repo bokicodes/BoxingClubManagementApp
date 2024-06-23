@@ -69,6 +69,8 @@ namespace Client.GUIController
             frmUnesiDodelu.DgvDodela.Columns[2].Visible = false;
             frmUnesiDodelu.DgvDodela.Columns[3].Visible = false;
             frmUnesiDodelu.DgvDodela.Columns[4].Visible = false;
+            frmUnesiDodelu.DgvDodela.Columns[5].Visible = false;
+            frmUnesiDodelu.DgvDodela.Columns[6].Visible = false;
         }
 
         internal void ObrisiDodelu(FrmUnesiDodelu frmUnesiDodelu, BindingList<Dodela> listaDodela)
@@ -147,6 +149,8 @@ namespace Client.GUIController
             frmUnesiDodelu.DgvDodela.Columns[2].Visible = false;
             frmUnesiDodelu.DgvDodela.Columns[3].Visible = false;
             frmUnesiDodelu.DgvDodela.Columns[4].Visible = false;
+            frmUnesiDodelu.DgvDodela.Columns[5].Visible = false;
+            frmUnesiDodelu.DgvDodela.Columns[6].Visible = false;
             frmUnesiDodelu.BtnSacuvaj.Text = "Sačuvaj";
         }
     }
