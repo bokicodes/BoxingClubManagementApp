@@ -12,42 +12,41 @@ namespace DBBroker
 {
     public class Broker
     {
-        private SqlConnection connection;
-        private SqlTransaction transaction;
+        private DbKonekcija konekcija;
 
         public Broker()
         {
-            connection = new SqlConnection(@"Data Source=DESKTOP-C1E55NG\SQLEXPRESS;Initial Catalog=BoxingClubDB;Integrated Security=True;");
-        }
-
-        public void OpenConnection()
-        {
-            connection?.Open();
+            konekcija = new DbKonekcija();
         }
 
         public void CloseConnection()
         {
-            connection?.Close();
+            konekcija.CloseConnection();
         }
 
-        public void BeginTransaction()
+        public void OpenConnection()
         {
-            transaction = connection.BeginTransaction();
-        }
-        
-        public void Commit()
-        {
-            transaction.Commit();
+            konekcija.OpenConnection();
         }
 
         public void Rollback()
         {
-            transaction.Rollback();
+            konekcija.Rollback();
         }
-        
+
+        public void Commit()
+        {
+            konekcija.Commit();
+        }
+
+        public void BeginTransaction()
+        {
+            konekcija.BeginTransaction();
+        }
+
         public IDomenskiObjekat Zapamti(IDomenskiObjekat obj)
         {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
+            SqlCommand cmd = konekcija.CreateCommand();
 
             cmd.CommandText = $"insert into {obj.NazivTabele} values({obj.VrednostiZaUneti})";
 
@@ -58,7 +57,7 @@ namespace DBBroker
 
         public List<IDomenskiObjekat> UcitajListu(IDomenskiObjekat obj)
         {
-            SqlCommand command = new SqlCommand("", connection, transaction);
+            SqlCommand command = konekcija.CreateCommand();
 
             command.CommandText = $"select * from {obj.NazivTabele} {obj.Joinovanje}";
 
@@ -77,7 +76,7 @@ namespace DBBroker
 
         public IDomenskiObjekat Izmeni(IDomenskiObjekat obj)
         {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
+            SqlCommand cmd = konekcija.CreateCommand();
 
             cmd.CommandText = $"update {obj.NazivTabele} set {obj.VrednostiZaIzmenu}";
 
@@ -88,7 +87,7 @@ namespace DBBroker
 
         public List<IDomenskiObjekat> Pretrazi(IDomenskiObjekat obj, string search)
         {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
+            SqlCommand cmd = konekcija.CreateCommand();
 
             cmd.CommandText = $"select * from {obj.NazivTabele} {obj.Joinovanje} where Ime like '%{search}%'";
 
@@ -108,7 +107,7 @@ namespace DBBroker
 
         public IDomenskiObjekat Obrisi(IDomenskiObjekat obj)
         {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
+            SqlCommand cmd = konekcija.CreateCommand();
 
             cmd.CommandText = $"DELETE FROM {obj.NazivTabele} WHERE {obj.BrisanjePoKoloni}";
 
@@ -119,7 +118,7 @@ namespace DBBroker
 
         public void ObrisiSve(IDomenskiObjekat obj)
         {
-            SqlCommand cmd = new SqlCommand("", connection, transaction);
+            SqlCommand cmd = konekcija.CreateCommand();
 
             cmd.CommandText = $"DELETE FROM {obj.NazivTabele}";
 

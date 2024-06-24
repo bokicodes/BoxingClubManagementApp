@@ -10,6 +10,7 @@ namespace SistemskeOperacije
     public abstract class SOBase
     {
         protected Broker broker = new Broker();
+
         public void ExecuteTemplate()
         {
             try
